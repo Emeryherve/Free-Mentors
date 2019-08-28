@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    <!-- Metadata -->
+<meta name="description" content="Public bus transportation booking service">
+<meta name="author" content="Victor Karangwa">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS Styles -->
+<link rel="stylesheet" type="text/css" href="../../css/styles.css" />
+
+    <!-- Javascript  -->
+ <script type="text/javascript" src="../../js/scripts.js"></script>
+</head>
+<body>
+    <div class="mobnav">
+  <span class="mob-menu-icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <div class="mob-logo">
+  <img class="main-logo" src="../../img/fmLogo.png">
+</div>
+</div>
+    </div>
+
+    <nav class="navbar">
+           
+            <ul class="topnav">
+                 
+                    <li><a class="menulink" href="../../index.html">Logout</a></li>
+                    
+                    <img class="main-logo" src="../../img/fmLogo.png">
+                    <h2 class="center-head"> Free-Mentor Admin Page</h2>
+                  </ul>
+                  
+              
+    </nav>
+    <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="./manage_sessions.html">Manage Sessions</a>
+            <hr class="menu-separtor">
+            <a href="./manage-mentors.html">Manage Mentors</a>
+            <hr class="menu-separtor">
+            <a href="./manage-users.html">Manage Users</a>
+            <hr class="menu-separtor">
+            <a href="../../index.html">Go to Free-Mentors</a>
+            <hr class="menu-separtor">
+            <a href="./myaccount.html">Manage Account</a>
+            <hr class="menu-separtor">
+            <a href="../../index.html">Logout</a>
+          </div>
+
+          
+       <div class="admin-panel">
+                <nav class="admin-nav-menu">
+
+                        <ul class="nav-admin">
+                            <hr class="menu-separtor">
+                                <li><a class="menulink-admin" href="./manage_sessions.html">Manage Sessions</a></li>
+                                <hr class="menu-separtor">
+                                <li><a class="menulink-admin" href="./manage-mentors.html">Manage Mentors</a></li>
+                                <hr class="menu-separtor">
+                                <li><a class="menulink-active" href="./manage-users.html"> Manage Users</a></li>
+                                <hr class="menu-separtor">
+                                <li><a class="menulink-admin" href="../../index.html">Go to Free-Mentors</a></li>
+                                <hr class="menu-separtor">
+                                <li><a class="menulink-admin" href="./myaccount.html">Manage Account</a></li>
+                                <hr class="menu-separtor">
+                              </ul>
+                              
+                          
+                </nav>
+
+
+       </div>
+
+
+<div class="container-center">
+<div class="all-trips">
+   <div class="trip-list">
+      <div class="search-filter">
+        <div class="search-input-container">
+        <input  type="text" class="search-input" id="searchtrip" placeholder="Search a User">
+        <input type="button" value="search" class="btn-custom"/>
+     </div>
+     <select class="trip-input">
+       <option disabled selected >Filter Users By</option>
+       <option>Id</option>
+       <option>First Name</option>
+       <option>Last Name</option>
+       <option>Role</option>
+       <option>Date Registered</option>
+      </select>
+      </div>
+     
+    <div class="scrollable">
+     <table class="fm-table">
+        <thead>
+          <tr>
+        <th>User Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Registered At</th>
+        <th>Action</th>
+        
+       </tr>
+    
+       <tbody>
+             <tr onclick="viewUser()">
+               <td>FM-548</td>
+               <td>Emery</td>
+               <td>Herve</td>
+               <td>emeryherve@gmail.com</td>
+               <td>emeryherve112</td>
+               <td>Mentor</td>
+               <td>11/07/2019</td>
+               
+               <td><img title="Delete" alt="Delete" onclick="viewUser()" class="square-image"src="../../img/view.png"/><img title="View" alt="View" onclick="deleteUser()" class="square-image"src="../../img/remove.png"/></td>
+                           </tr>
+             <tr onclick="viewUser()">
+                    <td>FM-548</td>
+                    <td>Emery</td>
+                    <td>Herve</td>
+                    <td>emeryherve@gmail.com</td>
+                    <td>emeryherve112</td>
+                    <td>Mentee</td>
+                    <td>11/07/2019</td>
+               
+               <td><img title="Delete" alt="Delete" onclick="viewUser()" class="square-image"src="../../img/view.png"/><img title="View" alt="View" onclick="deleteUser()" class="square-image"src="../../img/remove.png"/></td>
+                       </tr>
+               <tr onclick="viewUser()">
+                      <td>FM-548</td>
+                      <td>Emery</td>
+                      <td>Herve</td>
+                      <td>emeryherve@gmail.com</td>
+                      <td>emeryherve112</td>
+                      <td>Mentor</td>
+                      <td>11/07/2019</td>
+                  
+                  <td><img title="Delete" alt="Delete" onclick="viewUser()" class="square-image"src="../../img/view.png"/><img title="View" alt="View" onclick="deleteUser()" class="square-image"src="../../img/remove.png"/></td>
+                  </tr>
+                  <tr onclick="viewUser()">
+                      <td>FM-548</td>
+                      <td>Emery</td>
+                      <td>Herve</td>
+                      <td>emeryherve@gmail.com</td>
+                      <td>emeryherve112</td>
+                      <td>Mentee</td>
+                      <td>11/07/2019</td>
+                    
+                    <td><img title="Delete" alt="Delete" onclick="viewUser()" class="square-image"src="../../img/view.png"/><img title="View" alt="View" onclick="deleteUser()" class="square-image"src="../../img/remove.png"/></td>
+                 </tr>
+                 <tr onclick="viewUser()">
+                    <td>FM-548</td>
+                    <td>Emery</td>
+                    <td>Herve</td>
+                    <td>emeryherve@gmail.com</td>
+                    <td>emeryherve112</td>
+                    <td>Admin</td>
+                    <td>11/07/2019</td>
+                      
+                      <td><img title="Delete" alt="Delete" onclick="viewUser()" class="square-image"src="../../img/view.png"/><img title="View" alt="View" onclick="deleteUser()" class="square-image"src="../../img/remove.png"/></td>
+                </tr>
+                
+                       
+           </tbody>
+      </table>  
+    </div>
+    
+      <div class="search-btn-container">
+  <input type="button" class="custom-btn" value="Add New User"onclick="addUser()"/>
+      </div>
+ 
+
+  
+      
+ <!-- View a Specific trip -->
+ <div class="modal-view">
+    <div class="create-FMses-modal create-FMses-modal-js">
+        <form class="custom-form">
+        <h2 class="most-title"><!--<img class="img-icon" src="img/trip_icon.png"/>-->Free-Mentor User<label class="closeDialog" style="float: right" onclick="closeModalView()">&times;</label></h2>
+       <table class="custom-table">
+         <tr>
+           <th>User Id</th>
+           <td id="viewuserId" >FM-585</td>
+         </tr>
+         <tr>
+            <th>First Name</th>
+            <td id="viewuserFName" >Emery</td>
+          </tr>
+          <tr>
+              <th>Last Name</th>
+              <td id="viewuserLName" >Herve</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td id="viewuserMail" >emeryherve112@gmail.com</td>
+              </tr>
+              <tr>
+                  <th>Username</th>
+                  <td id="viewusername" >emeryherve112</td>
+                </tr>
+                <tr>
+                    <th>Role</th>
+                    <td id="viewuserPrev" >
+                      <select >
+                        <option>Admin</option>
+                        <option>Mentor</option>
+                        <option>Memnee</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                      <th>Registered At</th>
+                      <td id="viewuserReg" >11th May 2019</td>
+                    </tr>
+                  
+                        <tr>
+                          <td> <input type="button" class="custom-btn" value="Delete" onclick="dialogbox('Are you sure you want to delete this user?')"/></td>
+                          <td><input type="button" class="custom-btn" value="Save Changes" onclick="bookTrip()"/></td>
+                        </tr>
+       </table>
+
+        
+        
+             
+            
+          
+        </form>
+</div>   
+</div>
+</div>
+<!-- ############################### -->
+
+</div>
+</div>
+      </div>
+      
+      <!-- ################################ -->
+      <!-- Dialog Box -->
+      <div id="dialogbox" class="modal">
+      
+              <!-- Dialog content -->
+              <div class="modal-content">
+                      <div class="modal-header">
+                              <span class="close" onclick="closeDialog()">&times;</span>
+                              <h2>Free Mentor</h2>
+                            </div>
+                            <div class="modal-body">
+                <span class="dialog-content dialog-content-js"></span>
+              </div>
+              <div class="modal-buttons">
+                  <input type="button" class="custom-btn" value="No" onclick="closeDialog()"/>
+                  <input type="button" class="custom-btn" value="Yes" onclick="cancelTrip()"/>
+              </div>
+              </div>
+            
+            </div>
+      </body>
+      <div class="footer">
+          <p id="pd">&copy;2019 All Right reserved</p>
+      </div>
+      
+      </html>
