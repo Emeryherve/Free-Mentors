@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Free Mentors</title>
+
+	<head>
+  
+
+    <!-- Metadata -->
+<meta name="description" content="social initiative where accomplished professionals become role models to
+young people to provide free mentorship sessions.">
+<meta name="author" content="Emery Herve KIREZI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS Styles -->
+<link rel="stylesheet" type="text/css" href="../../css/styles.css">
+
+    <!-- Javascript  -->
+ <script type="text/javascript" src="../../js/scripts.js"></script>
+</head>
+</head>
+<body>
+<body>
+    <div class="mobnav">
+        <span class="mob-menu-icon" style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
+        <div class="mob-logo">
+        <img class="main-logo" src="../../img/fmLogo.png">
+      </div>
+      </div>
+          
+      
+          <nav class="navbar">
+            <ul class="topnav">
+              <li class="k"><a class="menulink" href="../../pages/signin.html">Logout</a>
+                <li><a class="menulink" href="../../pages/view_mentors.html">Mentors</a></li>
+                <li><a class="menulink " href="../../pages/signin.html">Sessions(3)</a></li>
+                <li><a class="menulink " href="../../index.html">Home</a></li>
+                <img class="main-logo" src="../../img/fmLogo.png">
+              </ul>
+              
+          
+</nav>
+<div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <a href="../../index.html">Home</a>
+        <hr class="menu-separtor">
+        <a href="../../pages/signin.html">Sessions(3)</a>
+        <hr class="menu-separtor">
+        <a  href="../../pages/view_mentors.html">Mentors</a>
+        <hr class="menu-separtor">
+        <a href="../../pages/signin.html">Logout</a>
+        <hr class="menu-separtor">
+      </div>
+  
+      
+         
+<!-- ############################### -->
+<h2 class="modal-header">Mentorship Session Requests</h2>
+
+
+  <div class="fm-request">
+        <div class="modal-header">
+                <h3>Pending Requests</h3>
+              </div>
+         
+                 <!-- sessioning Cards -->
+                 <div class="card-view">
+                     <div class="home-search-row">
+               <div class="home-search-column">
+               <b><span class="head-label">NGOMIRAKIZA Aman</span></b>
+               <em><span >QN: How do I know my talent </span> <span id="session-time">&nbsp; ~Yesterday</span></em>
+               </div>
+               <div class="right"><input type="button" class="small custom-btn" value="Accept" onclick="dialogbox('Request accepted successfully')"/>
+               </div>
+               
+           </div>
+
+                 </div>
+                 <div class="card-view">
+                        <div class="home-search-row">
+                  <div class="home-search-column">
+                  <b><span class="head-label">MUROKORE Kenthy</span></b>
+                  <em><span >QN: How do I manage my time effectively </span> <span id="session-time">&nbsp; ~2 days Ago</span></em>
+                  </div>
+                  <div class="right"><input type="button" class="small custom-btn" value="Accept" onclick="dialogbox('Request accepted successfully')"/>
+                  </div>
+                  
+              </div>
+   
+                    </div>
+                    <div class="card-view">
+                            <div class="home-search-row">
+                      <div class="home-search-column">
+                      <b><span class="head-label">NKUA Nkulume</span></b>
+                      <em><span >QN: How to be successful in your career </span> <span id="session-time">&nbsp; ~2 days Ago</span></em>
+                      </div>
+                      <div class="right"> <input type="button" class="small custom-btn" value="Accept" onclick="dialogbox('Request accepted successfully')"/>
+                      </div>
+                      
+                  </div>
+       
+                        </div>
+           
+                 <!-- sessioning Cards -->
+ 
+
+
+
+</div>  
+<!-- ################################ -->
+
+ <!-- View a Specific Mentor -->
+ <div class="modal-view">
+    <div class="fm-modal fm-modal-js">
+        <form class="custom-form">
+        <h2 class="most-title">Free-Mentor<label class="closeDialog" style="float: right" onclick="closeModalView()">&times;</label></h2>
+       <table class="custom-table">
+         <tr>
+           <th>Mentor Id</th>
+           <td id="viewuserId" >WF4785</td>
+         </tr>
+         <tr>
+            <th>Names </th>
+            <td id="viewuserFName" >Emery Herve</td>
+          </tr>
+            <tr>
+                <th>Contact Info</th>
+                <td class="space-around" id="viewuserMail" >emery@gmail.com</td>
+              </tr>
+              <tr>
+                  <th>Bio</th>
+                  <td  id="viewusername" ><p class="space-around">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                     Qui, officia. Accusantium ipsa quis ipsam vitae omnis beatae
+                      officia reprehenderit aspernatur eveniet recusandae laudantium 
+                      optio labore unde, ducimus illum! Voluptates, inventore!
+                  </p></td>
+                </tr>
+                <tr>
+                    <th>Expertise</th>
+                    <td id="viewuserPrev" >
+                     Software Engineering
+                    </td>
+                  </tr>
+                  <tr>
+                      <th>Occupation</th>
+                      <td id="viewuserReg" >Software Developer at Andela</td>
+                    </tr>
+                  
+                        <tr>
+                          <td> <input type="button" class="custom-btn" value="Cancel" onclick="closeModalView()"/></td>
+                          <td><input type="button" class="custom-btn" value="Request Session" onclick="dialogbox('Request has been sent successfully')"/></td>
+                        </tr>
+       </table>
+
+        
+        
+             
+            
+          
+        </form>
+</div>   
+</div>
+
+<div id="dialogbox" class="modal">
+
+        <!-- Dialog content -->
+        <div class="modal-content">
+                <div class="modal-header">
+                        <span class="close" onclick="closeDialog()">&times;</span>
+                        <h2>Free Mentor</h2>
+                      </div>
+                      <br><div class="modal-body">
+                      
+          <span class="dialog-content dialog-content-js"></span>
+        </div>
+        </div>
+      
+      </div>
+</body>
+<div class="footer">
+    <p id="pd">&copy;2019 All Right reserved</p>
+</div>
+
+</html>

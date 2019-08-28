@@ -29,6 +29,9 @@ const check = () => {
 const viewMentor = () => {
   document.querySelector('.modal-view').style.display = 'block';
 }
+const navto = () =>{
+  // alert(window.location.pathname)
+}
 
 let dialogbox = (message) => { // Get the modal
   const modal = document.querySelector('#dialogbox');
@@ -63,8 +66,8 @@ const closeNav = () => {
 const closeModalEdit = () => {
   document.querySelector('.modal-edit').style.display = 'none';
 };
-// view a trip
-const viewTrip = () => {
+// view a mentor
+const viewmentor = () => {
   document.querySelector('.modal-view').style.display = 'block';
 };
 
@@ -72,7 +75,7 @@ const viewTrip = () => {
 const closeModalView = () => {
   document.querySelector('.modal-view').style.display = 'none';
 };
-const bookTrip = () => {
+const sessionmentor = () => {
 
 };
 

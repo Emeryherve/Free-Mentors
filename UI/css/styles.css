@@ -15,6 +15,7 @@ body{
     margin: 0;
     padding: 10px 40px 10px 20px;
     overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   }
   
   .admin-panel{
@@ -233,6 +234,9 @@ width: 100%;
 .txt-label{
   color: #c69c6d;
 }
+.head-label{
+  color: #534741;
+}
 /* ----------------------------------------- */
 /* Button Design */
   .btn{
@@ -267,6 +271,20 @@ width: 100%;
     border: none;
     margin-bottom:10px;
     margin-top: 10px;
+    
+  }
+  .cus-btn{
+ 
+    background: #c69c6d;
+    color: #fff;
+    border-radius: 44px;
+    cursor: pointer;
+    width: 100px;;
+    transition: 0.8s;
+    height: 44px;
+    text-align: center;
+    outline: none;
+    border: none;
     
   }
   .small{
@@ -322,7 +340,7 @@ width: 100%;
   width: 100px;
   outline: none;
 }
-/* View trips page container */
+/* View mentors page container */
 .container-center{
   display: flex;
   justify-content: center;
@@ -331,7 +349,9 @@ width: 100%;
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 60px;
+
+  grid-gap: 20px;
+
   margin: 20px;
 }
 .search-input-container{
@@ -425,7 +445,7 @@ width: 100%;
     transition: 0.8s;
     display: block;
   }
-/* Tri card-trip view */
+/* Tri card-mentor view */
 
 /* ICON */
 .icon{
@@ -458,7 +478,7 @@ width: 100%;
   font-size: 20px;
  float:right;
 }
-.view-trip{
+.view-mentor{
   text-align: center;
   color: #487eb0;
 }
@@ -467,39 +487,39 @@ width: 100%;
   font-size: 20px;
   margin:10px;
 }
-.view-trip a{
+.view-mentor a{
   text-decoration: none;
   color: inherit;
 }
-.trips{
+.mentors{
   display: flex;
   flex-direction: row;
 }
  /* Remove extra left and right margins, due to padding */
  .row {margin: 0 5px;}
 
- /* Clear floats after the column-trips */
+ /* Clear floats after the column-mentors */
 .row:after {
 content: "";
 display: table;
 clear: both;
 }
-/* Style the counter card-trips */
-.card-trip {
+/* Style the counter card-mentors */
+.card-mentor {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 padding: 16px;
 background-color: #ffffff;
 
 }
 
-/* Float four column-trips side by side */
-.column-trip {
+/* Float four column-mentors side by side */
+.column-mentor {
 float: left;
 width: 45%;
 margin: 20px;
 padding: 0 10px;
 }
-.column-trip-long {
+.column-mentor-long {
   float: left;
   width: 95%;
   margin: 20px;
@@ -511,17 +531,17 @@ padding: 0 10px;
   margin: 20px;
   padding: 0 10px;
   }
-  .column-trip-long:hover{
+  .column-mentor-long:hover{
     background: rgba(204, 204, 204, 0.356);
     transition: 0.8s;
     cursor: pointer;
   }
-.column-trip:hover{
+.column-mentor:hover{
   background: rgba(204, 204, 204, 0.356);
   transition: 0.8s;
   cursor: pointer;
 }
-.trip-table{
+.mentor-table{
   padding: 10px;
   text-align: center;
   border-collapse: collapse;
@@ -554,32 +574,32 @@ text-align: center;
   flex-direction: column;
   text-align: center;
   }
-.trip-table th{
+.mentor-table th{
   padding: 10px;
   
 }
-.trip-table tr{
+.mentor-table tr{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 padding: 16px;
 background-color: #ffffff;
 border-radius: 5px;
 }
-.trip-table tr:hover{
+.mentor-table tr:hover{
   background-color: #f3f3f356;
   cursor: pointer;
 
 }
-.trip-table td{
+.mentor-table td{
   padding: 15px;
   text-align: right;
 }
-.trip-book-container{
+.mentor-session-container{
   margin-left: 25%;
   display: flex;
   flex-direction: row;
   
 }
-#bookinginfo{
+#sessioninginfo{
   margin:0 0 50px 100px;
   display: inline;
 }
@@ -589,7 +609,7 @@ border-radius: 5px;
   color: #534741;
 }
 
-.no-trips{
+.no-mentors{
   text-align: center;
   color: rgba(95, 95, 95, 0.555);
   font-size: 30px;
@@ -601,7 +621,7 @@ border-radius: 5px;
   width: 100px;
 }
 
-.no-trip-text{
+.no-mentor-text{
   text-transform: uppercase;
 }
 .closeDialog{
@@ -633,12 +653,12 @@ text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     
   }
-  .trip-list{
+  .mentor-list{
     height: 500px;
     margin-top: 30px;
     width: 100%;
   }
-  .all-trips{
+  .all-mentors{
     display: flex;
     flex-direction: row;
     margin: 0 auto;
@@ -687,7 +707,7 @@ text-align: center;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
-  .modal-new-trip{
+  .modal-new-mentor{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -708,6 +728,7 @@ text-align: center;
     padding: 10px;
   }
 
+
   /* Modal Header */
 .modal-header {
     padding: 5px;
@@ -725,7 +746,7 @@ text-align: center;
    text-align: center;
    margin: 0 auto;
 }
-.card-book{
+.card-view{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 10px;
 
@@ -743,7 +764,7 @@ text-align: center;
     animation-name: animatetop;
     animation-duration: 0.4s
   }
-  .available_booking {
+  .fm-request {
     position: relative;
     background-color: #f3f3f3;
     margin: 40px auto;
@@ -751,7 +772,7 @@ text-align: center;
     border: 1px solid #888;
     border-radius: 10px;
     width: 50%;
-    height: 500px;
+    height: wrap;
   }
  
   .container{
@@ -804,7 +825,7 @@ text-align: center;
   flex-direction: row;
   justify-content: space-around;
  }
- .search-trip{
+ .search-mentor{
    height: 100%;
  }
 
@@ -895,7 +916,7 @@ text-align: center;
   }
   /* Modal buttons */
   .modal-buttons{ margin-left: 50px;}
-  .trip-input{
+  .mentor-input{
     
     width:wrap;
     height:30px;
@@ -933,7 +954,7 @@ text-align: center;
     border-radius: 5px;
       background: #fefefe;
   }
-  .trip-input:focus{
+  .mentor-input:focus{
     border: 2px solid #27425d;
   }
   
@@ -958,12 +979,12 @@ text-align: center;
       }
   
       
-    .column-trip {
+    .column-mentor {
       width: 100%;
       display: block;
       margin-bottom: 20px;
     }
-    .no-trips{
+    .no-mentors{
       text-align: center;
       color: rgb(95, 95, 95);
       font-size: 15px;
@@ -984,14 +1005,14 @@ text-align: center;
     
 
    /* ------------------------- */
-    .trip-book-container{
+    .mentor-session-container{
       margin-left: 0%;
       display: flex;
       flex-direction: column;
     
       
     }
-    #bookinginfo{
+    #sessioninginfo{
       margin:0 auto;
       overflow: auto;
     }
@@ -1008,7 +1029,9 @@ text-align: center;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
     }
-    .trip-input{
+
+    .mentor-input{
+
       margin: 5px;
     }
     img{margin: 0 auto;}
@@ -1016,20 +1039,20 @@ text-align: center;
       width: 85%;
     margin-bottom: 10px;
     }
-    .trip-table th{
+    .mentor-table th{
       padding: 6px;
       
     }
-    .trip-table{
+    .mentor-table{
       margin:0px;
     
      
     }
-    .trip-table tr{
+    .mentor-table tr{
     padding: 6px;
     }
 
-    .trip-table td{
+    .mentor-table td{
       padding: 6px;
 
   }
@@ -1071,13 +1094,13 @@ text-align: center;
  .input-icon-loc{
    width: 10px;
  }
- #bookinginfo{
+ #sessioninginfo{
   margin:10px;
  }
- .all-trips{
+ .all-mentors{
    width: 350px;
  }
- .available_booking { width: 80%;}
+ .fm-request { width: 80%;}
  .custom-btn{width:130px; font-size: 11px;}
  .fm-modal{width: 320px; margin-bottom: 20px;}
  .custom-table td{ padding: 0px}
