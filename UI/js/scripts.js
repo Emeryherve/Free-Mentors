@@ -26,6 +26,9 @@ const check = () => {
     dialogbox(msg);
   }
 };
+const viewMentor = () => {
+  document.querySelector('.modal-view').style.display = 'block';
+}
 
 let dialogbox = (message) => { // Get the modal
   const modal = document.querySelector('#dialogbox');

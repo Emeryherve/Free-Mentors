@@ -43,6 +43,20 @@ body{
   .bordered{
     border: 1px solid #c69c6d;
   }
+  .bordered-grid{
+    border: 1px solid #c69c6d;
+    margin-left: 20px;
+  }
+  .bordered-grid:hover{
+    background-color: #c69c6d86;
+  }
+  .centered{
+    text-align: center;
+  }
+  .space-around
+  {
+    padding-right: 20px;
+  }
   .menulink {
     display: block;
     color: #534741;
@@ -317,7 +331,8 @@ width: 100%;
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 100px;
+  grid-gap: 60px;
+  margin: 20px;
 }
 .search-input-container{
   background-color:white;
@@ -873,7 +888,7 @@ text-align: center;
   .mob-logo{
     text-align: center;
   }
-  .create-trip-modal{
+  .fm-modal{
     width: 500px; /* Mke 320px for responsiveness*/
     margin: 0 auto;
     margin-top: 100px;
@@ -895,6 +910,19 @@ text-align: center;
     display: block;
     
   }
+  .readMore{
+    text-decoration: none;
+    color: #888;
+  }
+  .m-txt{
+    margin-left: 20px;
+  }
+  .big-txt{
+    font-size: 25px;
+  }
+  .readMore:hover{
+    font-style: italic;
+}
   .custom-label-admin{
     text-align: left;
     display: block;
@@ -976,6 +1004,10 @@ text-align: center;
     .container-column{
       margin: 0px;
     }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
     .trip-input{
       margin: 5px;
     }
@@ -1047,7 +1079,7 @@ text-align: center;
  }
  .available_booking { width: 80%;}
  .custom-btn{width:130px; font-size: 11px;}
- .create-trip-modal{width: 320px; margin-bottom: 20px;}
+ .fm-modal{width: 320px; margin-bottom: 20px;}
  .custom-table td{ padding: 0px}
  .most-title{font-size: 17px;}
  .modal {width:100%;}
