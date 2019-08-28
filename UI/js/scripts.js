@@ -55,25 +55,7 @@ const navigate = () =>{
 
 const closeNav = () => {
   document.getElementById('mySidenav').style.width = '0';
-};
 
-// Create a trip
-const createTrip = () => {
-  // document.querySelector('.modal').style.display="block";
-  document.querySelector('.modal').style.display = 'block';
-};
-// close Create trip Modal
-const closecreateTrip = () => {
-  // document.querySelector('.modal').style.display="block";
-  document.querySelector('.modal-new-trip').style.display = 'none';
-};
-// edit a trip
-const editTrip = () => {
-  document.querySelector('.modal-edit').style.display = 'block';
-};
-const saveTrip = () => {
-
-};
 // close editing modal
 const closeModalEdit = () => {
   document.querySelector('.modal-edit').style.display = 'none';
@@ -90,22 +72,10 @@ const closeModalView = () => {
 const bookTrip = () => {
 
 };
-// View Booking
-const viewBooking = () => {
-  document.querySelector('.modal-view').style.display = 'block';
-};
 
-// Cancel Trip
-const cancelTrip = () => {
 
-};
 // view a user
 const viewUser = () => {
   document.querySelector('.modal-view').style.display = 'block';
 };
-const createBooking = () => {
-  document.querySelector('.modal-edit').style.display = 'block';
-};
-const cancelBooking = () => {
-  document.querySelector('.modal').style.display = 'block';
-};
+
