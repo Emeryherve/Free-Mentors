@@ -1,0 +1,1057 @@
+body{
+  margin:0;
+  padding:0;
+  height:100%;
+    background: #f3f3f3;
+    
+}
+* {
+  box-sizing: border-box;
+}
+/* Styles for navigation menu */
+.topnav {
+    background: #f3f3f3;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 40px 10px 20px;
+    overflow: hidden;
+  }
+  
+  .admin-panel{
+    background-color: #534741;
+    height:513px ;
+    padding: 10px 40px 10px 20px;
+    overflow: hidden;
+    float: left;
+    text-align: left;
+    position: relative;
+    border: 1px  solid #ccc;
+    border-left: 0px;
+  }
+  .nav-admin{
+    
+    list-style-type: none;
+  }
+  .menu-separtor {
+    width: 100%;
+  }
+  .left-aligned{
+    text-align: left;
+  }
+  .topnav li {float: right;}
+ 
+  .bordered{
+    border: 1px solid #c69c6d;
+  }
+  .menulink {
+    display: block;
+    color: #534741;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    padding: 10px 40px 10px 20px;
+    width: 100%;
+    text-decoration: none;
+    
+  }
+  
+  .active{
+    border: 1px solid #c69c6d;
+    text-align: center;
+  }
+
+  .menulink-admin{
+    display: block;
+    color: white;
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    padding: 10px 10px 10px 0px;
+    width: 130%;
+    text-decoration: none;
+  }
+  .menulink-active {
+    display: block;
+    color: white;
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    padding: 10px 10px 10px 0px;
+    width: 150%;
+    text-decoration: none;
+    background-color: #c69c6d ;
+  }
+  .main-container {
+    min-height:100%;
+    display: flex;
+    flex-direction: column;
+ }
+ /* When user hovers on a menu  */
+ .menulink:hover:not(.active) {
+      background-color: #c69c6d ;
+      border-radius: 10px;
+      
+    }
+   
+/* Logo image styles */
+.main-logo{
+    width: 240px;
+    height: 50px;
+ }
+ .center-head{
+   display: inline;
+   margin-left: 30%;
+   color: #534741;
+ }
+ .square-image{
+   width:30px;
+   margin-left: 20px;
+ }
+/* Change the navigation menu for small screen devices */
+
+@media screen and (max-width: 900px) {
+    .menu-separtor {
+        display: block;
+      }
+      .topnav li {float: none;}
+  .menulink {
+    display: block;
+    color: white;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    padding: 5px;
+    text-decoration: none;
+  }
+  .main-logo{
+    width: 200px;
+    height: 50px;
+ }
+ .topnav{
+     width: 100%;
+ }
+ 
+}
+/* ------------------------------------------ */
+
+
+/* Footer styles */
+.footer{
+  position: fixed;
+  background-color: #534741;
+  color: aliceblue;
+  text-align: center;
+  display: block;
+  bottom:0px;
+  width:100%;
+  height:60px;
+    
+}
+.user-body{
+overflow: auto;
+width: 100%;
+}
+.normal-img{
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  margin: 0 auto;
+}
+/* ----------------------- */
+/* Form design */
+.centered-form{
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+    background: url(../img/support.jpg);
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    border-radius: 5px;
+  }
+  .center-text{
+    text-align: center;
+    color: #534741;
+    font-family: Bell 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  }
+  .medium-width{
+    width: 700px;
+    color: #fff;
+  }
+  .centered-form h2{
+    font-family: 'impact', cursive;
+    color: #fff;
+    font-size: 40px;
+  }
+  .form-input{
+    display: block;
+    width: 100%;
+    padding: 0 16px;
+    height: 44px;
+    text-align: left;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: "montserrat",sans-serif;
+    
+  }
+  .bordered{
+    border: 1px solid #c69c6d;
+  }
+
+  .txtb{
+    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.781);
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+  .form-checkbox ,.checkbox-label{
+    color: #ccc;
+  font-style: italic;
+}
+.form-checkbox:checked + .checkbox-label{
+    color: #c69c6d;
+    font-style: normal;
+}
+.txt-label{
+  color: #c69c6d;
+}
+/* ----------------------------------------- */
+/* Button Design */
+  .btn{
+    margin:0 auto;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    background: #c69c6d;
+    color: rgb(0, 0, 0);
+    border-radius: 44px;
+    cursor: pointer;
+    width: 200px;;
+    transition: 0.8s;
+    padding: 0 16px;
+    height: 44px;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+  }
+  .custom-btn{
+ 
+    background: #c69c6d;
+    color: #fff;
+    border-radius: 44px;
+    cursor: pointer;
+    width: 200px;;
+    transition: 0.8s;
+    padding: 0 16px;
+    height: 44px;
+    text-align: center;
+    outline: none;
+    border: none;
+    margin-bottom:10px;
+    margin-top: 10px;
+    
+  }
+  .small{
+    width: 100px;
+  }
+  .custom-btn:hover{
+    transform: scale(0.96);
+  }
+  
+ 
+  .btn:hover{
+    transform: scale(0.96);
+  }
+
+  .search-btn-container{
+    width: 40%; 
+   
+  }
+  .search-filter{
+    display: flex;
+    flex-direction: row;
+  }
+  /* -------------------------- */
+  /* InputText with icons inside */
+
+  .search-btn-container{
+    margin: 0 auto;
+  }
+.search-input{
+    
+  background:transparent;
+    border-style: none;
+    width: 350px;
+    height: 40px;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+    padding-right: 80px;
+}
+.btn-custom{
+
+  position:absolute;
+  display: inline;
+  border: 1px solid #c69c6d; 
+  text-align: center;
+  border-radius: 0px 44px 44px 0px;
+  top:0;
+  right:0;
+  background: #c69c6d;
+  color: #fff;
+  box-sizing: border-box;
+  height: 40px;
+  width: 100px;
+  outline: none;
+}
+/* View trips page container */
+.container-center{
+  display: flex;
+  justify-content: center;
+  
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 100px;
+}
+.search-input-container{
+  background-color:white;
+    position:relative;
+    border: 1px solid #c69c6d;
+    border-radius: 44px;
+    width:400px;
+    height: 40px;
+    margin-left: 50px;
+    
+}
+.location-input-container{
+  background-color:white;
+    position:relative;
+    border: 1px solid #c69c6d;
+    border-radius: 5px;
+    width:300px;
+    height: 40px;
+    margin-top: 50px;
+}
+.location-input{
+    background:transparent;
+    border-style: none;
+    width: 290px;
+    height: 40px;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    padding-left: 50px;
+}
+.icon-custom-from{
+  position:absolute;
+  display: inline;
+  border: none; 
+  text-align: center;
+  top:0;
+  left:0;
+  background: url("../img/from.png");
+  background-size:50%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  color: #fff;
+  box-sizing: border-box;
+  height: 40px;
+  width: 50px;
+  outline: none;
+}
+.icon-custom-to{
+  position:absolute;
+  display: inline;
+  border: none; 
+  text-align: center;
+  top:0;
+  left:0;
+  background: url("../img/to.png");
+  background-size:50%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  color: #fff;
+  box-sizing: border-box;
+  height: 40px;
+  width: 50px;
+  outline: none;
+}
+.icon-custom-date{
+  position:absolute;
+  display: inline;
+  border: none; 
+  text-align: center;
+  top:0;
+  left:0;
+  background: url("../img/calendar.png");
+  background-size:50%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  color: #fff;
+  box-sizing: border-box;
+  height: 40px;
+  width: 50px;
+  outline: none;
+}
+  /* -------------------------- */
+
+  .link{
+    text-decoration: none;
+    color: #fff;
+    font-family: "montserrat",sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    transition: 0.8s;
+    display: block;
+  }
+/* Tri card-trip view */
+
+/* ICON */
+.icon{
+  width: 30px;
+  height: 15px;
+  margin-left:10px;
+}
+#destination{
+  margin-left:20px;
+}
+.location-info{
+  margin: 10px;
+}
+.place{
+  font-size: 20px;
+}
+.place-long{
+  font-size: 20px;
+  margin-left: 50px;
+}
+.dep-date{
+  margin-left:10px;
+}
+.bus{
+  padding-top: 10px;
+  color: rgb(119, 119, 119);
+  margin-left:10px;
+}
+.price-container{
+  font-size: 20px;
+ float:right;
+}
+.view-trip{
+  text-align: center;
+  color: #487eb0;
+}
+.custom-header{
+  color: #487eb0; 
+  font-size: 20px;
+  margin:10px;
+}
+.view-trip a{
+  text-decoration: none;
+  color: inherit;
+}
+.trips{
+  display: flex;
+  flex-direction: row;
+}
+ /* Remove extra left and right margins, due to padding */
+ .row {margin: 0 5px;}
+
+ /* Clear floats after the column-trips */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+/* Style the counter card-trips */
+.card-trip {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+padding: 16px;
+background-color: #ffffff;
+
+}
+
+/* Float four column-trips side by side */
+.column-trip {
+float: left;
+width: 45%;
+margin: 20px;
+padding: 0 10px;
+}
+.column-trip-long {
+  float: left;
+  width: 95%;
+  margin: 20px;
+  padding: 0 10px;
+  }
+  .title{
+    float: left;
+  width: 95%;
+  margin: 20px;
+  padding: 0 10px;
+  }
+  .column-trip-long:hover{
+    background: rgba(204, 204, 204, 0.356);
+    transition: 0.8s;
+    cursor: pointer;
+  }
+.column-trip:hover{
+  background: rgba(204, 204, 204, 0.356);
+  transition: 0.8s;
+  cursor: pointer;
+}
+.trip-table{
+  padding: 10px;
+  text-align: center;
+  border-collapse: collapse;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+
+}
+.scrollable{
+  display: block;
+  overflow: auto;
+  width:100%;
+}
+.no-flow{
+  overflow: hidden;
+  width: 1100px;
+  margin: 0 auto;
+}
+.user-photo{
+  width: 200px;
+  height: 200px;
+}
+.container-row{
+display: flex;
+flex-direction: row;
+text-align: center;
+}
+.container-column{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  }
+.trip-table th{
+  padding: 10px;
+  
+}
+.trip-table tr{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+padding: 16px;
+background-color: #ffffff;
+border-radius: 5px;
+}
+.trip-table tr:hover{
+  background-color: #f3f3f356;
+  cursor: pointer;
+
+}
+.trip-table td{
+  padding: 15px;
+  text-align: right;
+}
+.trip-book-container{
+  margin-left: 25%;
+  display: flex;
+  flex-direction: row;
+  
+}
+#bookinginfo{
+  margin:0 0 50px 100px;
+  display: inline;
+}
+.most-title{
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #534741;
+}
+
+.no-trips{
+  text-align: center;
+  color: rgba(95, 95, 95, 0.555);
+  font-size: 30px;
+  padding: 95px;
+  margin: 38px;
+
+}
+.single-icon{
+  width: 100px;
+}
+
+.no-trip-text{
+  text-transform: uppercase;
+}
+.closeDialog{
+  color: #888;
+}
+.closeDialog:hover{
+color: #27425d;
+}
+  .centered-form a:hover{
+    background: rgba(0,0,0,.3);
+  }
+  .filter-options{
+    margin-bottom: 50px;
+    width: 150px;
+  }
+.filter-form input[type="radio"]{
+  margin: 10px;
+}
+.filter-criteria{
+  width: 150px;
+}
+h3{
+text-align: center;
+}
+
+  .sorting{
+  
+    background-color: rgba(255, 255, 255, 0);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    
+  }
+  .trip-list{
+    height: 500px;
+    margin-top: 30px;
+    width: 100%;
+  }
+  .all-trips{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    
+  }
+  @media screen and (max-width: 900px) {
+    .centered-form{
+      width: 300px;
+      padding: 20px;}
+      
+  }
+  /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .modal-edit {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .modal-view {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .modal-new-trip{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .custom-table{
+    text-align: left;
+    margin-left: 20px;
+    position: relative;
+  }
+  .custom-table td{
+    padding: 10px;
+  }
+
+  /* Modal Header */
+.modal-header {
+    padding: 5px;
+    background-color: #534741;
+    color: white;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+  }
+  /* Modal Body */
+.modal-body {
+    padding: 10px;
+   
+}
+.modal-body{
+   text-align: center;
+   margin: 0 auto;
+}
+.card-book{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+
+}
+  /* Modal Content/Box */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin:0 auto;
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  .available_booking {
+    position: relative;
+    background-color: #f3f3f3;
+    margin: 40px auto;
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 50%;
+    height: 500px;
+  }
+ 
+  .container{
+    position: relative;
+    background-color: #fefefea1;
+    margin: auto;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.301),0 6px 20px 0 rgba(0,0,0,0.301);
+
+  }
+
+  .container-header{
+    padding: 2px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color:  #534741;
+    position: relative;
+    color: white;
+    text-align: center;
+  }
+
+  .container-body{
+    height: 250px;
+    text-align: center;
+     
+ }
+ .home-search-column{
+   margin: 10px;
+  display: flex;
+  flex-direction: column;
+ }
+ .right{
+   float: right;
+   margin-left:auto;
+    margin-right:0;
+ }
+ .left{
+  float: left;
+  margin-left:0;
+   margin-right:auto;
+}
+ .home-search-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+ }
+ .search-trip{
+   height: 100%;
+ }
+
+ .custom-body{
+   overflow: auto;
+   width: 100%;
+   background-image: url(../img/bg.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 50%;
+   position: relative;
+ }
+/* Custom radio buttons */
+
+  /* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+  }
+/* The Close Button */
+.close {
+    color: rgb(255, 255, 255);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  } 
+  /* Side navigation */
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #534741;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: #c69c6d;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    color: #c69c6d;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  .mobnav{
+    display: none;
+    background-color: #f3f3f3;
+ 
+  }
+  .mob-menu-icon{
+    color: #534741;
+    float: left;
+  }
+  .mob-logo{
+    text-align: center;
+  }
+  .create-trip-modal{
+    width: 500px; /* Mke 320px for responsiveness*/
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+  /* Modal buttons */
+  .modal-buttons{ margin-left: 50px;}
+  .trip-input{
+    
+    width:wrap;
+    height:30px;
+    border: 1px solid #c7c7c7;
+    margin:0px 20px 20px 20px;
+    font-size: 15px;
+    padding: 2px;
+    display: block;
+  }
+  .custom-label{
+    margin:10px 0px 5px 20px;
+    display: block;
+    
+  }
+  .custom-label-admin{
+    text-align: left;
+    display: block;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  .custom-form{
+    border-radius: 5px;
+      background: #fefefe;
+  }
+  .trip-input:focus{
+    border: 2px solid #27425d;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .location-input-container{
+      width: 250px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .centered-form{
+      width: 300px;
+      padding: 20px;}
+      .modal-content {
+        background-color: #fefefe;
+        margin: 0 auto; /* 50% from the top and centered */
+        width: 80%; 
+        text-align: center;
+      }
+      textarea{
+        width: 250px;
+      }
+  
+      
+    .column-trip {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .no-trips{
+      text-align: center;
+      color: rgb(95, 95, 95);
+      font-size: 15px;
+      padding: 0;
+      margin-top:50px;
+    
+    }
+    .topnav{
+      display: none;
+    }
+    .admin-panel{
+      display: none;
+    }
+    .mobnav{
+      display: block;
+    }
+   /* Make a table responsive */
+    
+
+   /* ------------------------- */
+    .trip-book-container{
+      margin-left: 0%;
+      display: flex;
+      flex-direction: column;
+    
+      
+    }
+    #bookinginfo{
+      margin:0 auto;
+      overflow: auto;
+    }
+    .container-row{
+      flex-direction: column;
+      margin-left: 10px;
+      overflow: auto;
+      width: 100%;
+    }
+    .container-column{
+      margin: 0px;
+    }
+    .trip-input{
+      margin: 5px;
+    }
+    img{margin: 0 auto;}
+    .scrollable{
+      width: 85%;
+    margin-bottom: 10px;
+    }
+    .trip-table th{
+      padding: 6px;
+      
+    }
+    .trip-table{
+      margin:0px;
+    
+     
+    }
+    .trip-table tr{
+    padding: 6px;
+    }
+
+    .trip-table td{
+      padding: 6px;
+
+  }
+  .search-filter{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width: 50%;
+  }
+  .search-input-container{
+      width:280px;
+      margin-left: 0px;
+      margin-bottom: 10px;
+      
+  }
+  .search-input{
+    text-align: left;
+    margin-left: 10px;
+  }
+  .container-body{
+
+     margin-bottom: 20px;
+ }
+ .home-search-row{
+
+  flex-direction: column;
+  
+  
+   
+}
+ .location-input-container{
+   width: 93%;
+   margin-top:10px;
+   margin-left: 10px;
+ }
+ .location-input{
+  width: 220px;
+ }
+ .input-icon-loc{
+   width: 10px;
+ }
+ #bookinginfo{
+  margin:10px;
+ }
+ .all-trips{
+   width: 350px;
+ }
+ .available_booking { width: 80%;}
+ .custom-btn{width:130px; font-size: 11px;}
+ .create-trip-modal{width: 320px; margin-bottom: 20px;}
+ .custom-table td{ padding: 0px}
+ .most-title{font-size: 17px;}
+ .modal {width:100%;}
+ .modal-buttons{ margin: 0px;}
+}
+  
+/* --------- */
