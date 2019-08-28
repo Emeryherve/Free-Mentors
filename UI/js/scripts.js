@@ -32,6 +32,7 @@ const viewMentor = () => {
 const navto = () =>{
   // alert(window.location.pathname)
 }
+
 let dialogbox = (message) => { // Get the modal
   const modal = document.querySelector('#dialogbox');
 
