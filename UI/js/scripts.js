@@ -55,7 +55,7 @@ const navigate = () =>{
 
 const closeNav = () => {
   document.getElementById('mySidenav').style.width = '0';
-
+}
 // close editing modal
 const closeModalEdit = () => {
   document.querySelector('.modal-edit').style.display = 'none';
