@@ -49,6 +49,10 @@ const openNav = () => {
   document.getElementById('mySidenav').style.width = '250px';
 };
 
+const navigate = () =>{
+  location.replace('./pages/signup.html');
+}
+
 const closeNav = () => {
   document.getElementById('mySidenav').style.width = '0';
 };

@@ -163,7 +163,7 @@ width: 100%;
     width: 400px;
     padding: 20px;
     text-align: center;
-    background: url(../img/formBG.png);
+    background: url(../img/support.jpg);
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 70px;
@@ -195,19 +195,29 @@ width: 100%;
     font-family: "montserrat",sans-serif;
     
   }
+  .bordered{
+    border: 1px solid #c69c6d;
+  }
 
   .txtb{
     margin: 20px 0;
     background: rgba(255, 255, 255, 0.781);
     border-radius: 6px;
-  }
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
   .form-checkbox ,.checkbox-label{
     color: #ccc;
   font-style: italic;
 }
 .form-checkbox:checked + .checkbox-label{
-    color: #487eb0;
+    color: #c69c6d;
     font-style: normal;
+}
+.txt-label{
+  color: #c69c6d;
 }
 /* ----------------------------------------- */
 /* Button Design */
