@@ -3,7 +3,7 @@
     <head>
 
     <!-- Metadata -->
-<meta name="description" content="Public bus transportation booking service">
+<meta name="description" content="Public bus transportation sessioning service">
 <meta name="author" content="Victor Karangwa">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -74,14 +74,14 @@
        </div>
 
 <div class="container-center">
-<div class="all-trips">
-   <div class="trip-list">
+<div class="all-mentors">
+   <div class="mentor-list">
       <div class="search-filter">
         <div class="search-input-container">
-        <input  type="text" class="search-input" id="searchtrip" placeholder="Search a User">
+        <input  type="text" class="search-input" id="searchmentor" placeholder="Search a User">
         <input type="button" value="search" class="btn-custom"/>
      </div>
-     <select class="trip-input">
+     <select class="mentor-input">
        <option disabled selected >Filter Users By</option>
        <option>Id</option>
        <option>First Name</option>
@@ -91,7 +91,7 @@
       </div>
      
     <div class="scrollable">
-     <table class="trip-table">
+     <table class="mentor-table">
         <thead>
           <tr>
         <th>User Id</th>
@@ -217,7 +217,7 @@
                   
                         <tr>
                           <td> <input type="button" class="custom-btn" value="Delete" onclick="dialogbox('Are you sure you want to delete this user?')"/></td>
-                          <td><input type="button" class="custom-btn" value="Save Changes" onclick="bookTrip()"/></td>
+                          <td><input type="button" class="custom-btn" value="Save Changes" onclick="sessionmentor()"/></td>
                         </tr>
        </table>
 
@@ -251,7 +251,7 @@
               </div>
               <div class="modal-buttons">
                   <input type="button" class="custom-btn" value="No" onclick="closeDialog()"/>
-                  <input type="button" class="custom-btn" value="Yes" onclick="cancelTrip()"/>
+                  <input type="button" class="custom-btn" value="Yes" onclick="cancelmentor()"/>
               </div>
               </div>
             
