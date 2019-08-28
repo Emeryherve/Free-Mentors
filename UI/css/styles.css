@@ -18,7 +18,7 @@ body{
   }
   
   .admin-panel{
-    background: #27425d;
+    background-color: #534741;
     height:513px ;
     padding: 10px 40px 10px 20px;
     overflow: hidden;
@@ -41,7 +41,7 @@ body{
   .topnav li {float: right;}
  
   .bordered{
-    border: 1px solid #487eb0;
+    border: 1px solid #c69c6d;
   }
   .menulink {
     display: block;
@@ -56,7 +56,7 @@ body{
   }
   
   .active{
-    border: 1px solid #487eb0;
+    border: 1px solid #c69c6d;
     text-align: center;
   }
 
@@ -79,7 +79,7 @@ body{
     padding: 10px 10px 10px 0px;
     width: 150%;
     text-decoration: none;
-    background-color: #6a747e ;
+    background-color: #c69c6d ;
   }
   .main-container {
     min-height:100%;
@@ -101,7 +101,7 @@ body{
  .center-head{
    display: inline;
    margin-left: 30%;
-   color: rgb(255, 255, 255);
+   color: #534741;
  }
  .square-image{
    width:30px;
@@ -240,7 +240,7 @@ width: 100%;
   }
   .custom-btn{
  
-    background: #487eb0;
+    background: #c69c6d;
     color: #fff;
     border-radius: 44px;
     cursor: pointer;
@@ -278,45 +278,6 @@ width: 100%;
   /* -------------------------- */
   /* InputText with icons inside */
 
-  .input-icon-loc{
-    background-image:url("../img/from.png"); 
-background-repeat: no-repeat; 
-background-position: 3px 10px;
-background-size: 8%;
-border-radius: 10px;
-width: 25%;
-height: 15%;
-display: block;
-float: left;
-border-color: #487eb0;
-border-style:solid;
-text-indent:40px;
-margin-left: 23px;
-margin-top:40px; 
-font-size: 20px;
-box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  }
-  .input-icon-date{
-    background-image:url("../img/calender.png"); 
-background-repeat: no-repeat; 
-background-position: 3px 10px;
-background-size: 8%;
-border-radius: 10px;
-width: 18%;
-height: 15%;
-display: block;
-float: left;
-border-color: #487eb0;
-border-style:solid;
-text-indent:20px;
-margin-left: 23px;
-margin-top:40px; 
-padding: 1px;
-font-size: 15px;
-box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  }
-
-  
   .search-btn-container{
     margin: 0 auto;
   }
@@ -335,12 +296,12 @@ box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 
   position:absolute;
   display: inline;
-  border: 1px solid #487eb0; 
+  border: 1px solid #c69c6d; 
   text-align: center;
   border-radius: 0px 44px 44px 0px;
   top:0;
   right:0;
-  background: #487eb0;
+  background: #c69c6d;
   color: #fff;
   box-sizing: border-box;
   height: 40px;
@@ -361,7 +322,7 @@ box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 .search-input-container{
   background-color:white;
     position:relative;
-    border: 1px solid #487eb0;
+    border: 1px solid #c69c6d;
     border-radius: 44px;
     width:400px;
     height: 40px;
@@ -610,7 +571,7 @@ border-radius: 5px;
 .most-title{
   text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: #487eb0;
+  color: #534741;
 }
 
 .no-trips{
@@ -735,7 +696,7 @@ text-align: center;
   /* Modal Header */
 .modal-header {
     padding: 5px;
-    background-color:  #27425d;
+    background-color: #534741;
     color: white;
     text-align: center;
     border-radius: 10px 10px 0px 0px;
