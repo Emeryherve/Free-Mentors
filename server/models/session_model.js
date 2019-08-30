@@ -4,7 +4,40 @@ import StatusCode from '../helpers/status_codes';
 
 class Session {
   constructor() {
-    this.sessions = [];
+    this.sessions = [
+      {
+        sessionId: 1,
+        mentorId: 2,
+        menteeId: 1,
+        questions:'Just for test',
+        menteeEmail:'herve2@gmail.com',
+        status: 'pending',
+       },
+       {
+        sessionId: 2,
+        mentorId: 4,
+        menteeId: 2,
+        questions:'Just for test',
+        menteeEmail:'herve4@gmail.com',
+        status: 'accepted',
+       },
+       {
+        sessionId: 3,
+        mentorId: 5,
+        menteeId: 3,
+        questions:'Just for test',
+        menteeEmail:'herve5@gmail.com',
+        status: 'rejected',
+       },
+       {
+        sessionId: 4,
+        mentorId: 5,
+        menteeId: 3,
+        questions:'Just for test',
+        menteeEmail:'herve5@gmail.com',
+        status: 'pending',
+       },
+    ];
   }
 
   // Tempolary keep mentorship request in memory
@@ -66,15 +99,6 @@ class Session {
       }
       return false;
     };
-
-    // mentorship request status checker
-    isPendingSession = (sessionId) => {
-      const session = this.isSessionExist(sessionId);
-      if (session.status === 'pending') {
-        return true;
-      }
-      return false;
-    }
 }
 
 export default new Session();

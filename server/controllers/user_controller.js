@@ -75,7 +75,7 @@ class UserController {
       // 2. Check if is not already changed to a mentor
       if (User.isAlreadyAmentor(userId)) {
         return res.status(StatusCode.FORBIDDEN).send({
-          status: 'error',
+          status: StatusCode.FORBIDDEN,
           error: `The user with ${userId} id is already a mentor!.`,
         });
       }
@@ -86,11 +86,13 @@ class UserController {
           message: 'User account changed to mentor',
         });
       }
+      /*
       // Faced with unexpected error while changing
       return res.status(StatusCode.SERVER_ERROR).send({
         status: StatusCode.SERVER_ERROR,
         message: 'Failed to change user to mentor, try again later.',
       });
+      */
     };
 
     // Return all users who are mentors
@@ -109,17 +111,11 @@ class UserController {
       // 1. Check if mentorId exists
       if (!User.isUserExist(mentorId)) {
         return res.status(StatusCode.NOT_FOUND).send({
-          status: 'error',
+          status: StatusCode.NOT_FOUND,
           error: `The user with ${mentorId} id is not found!.`,
         });
       }
-      // 2. Check if a user with "mentorId" is a mentor
-      if (!User.isAlreadyAmentor(mentorId)) {
-        return res.status(StatusCode.FORBIDDEN).send({
-          status: 'error',
-          error: `The user with ${mentorId} id is not yet a mentor!.`,
-        });
-      }
+      
       const mentor = User.getMentor(mentorId);
       return res.status(StatusCode.REQUEST_SUCCEDED).send({
         status: StatusCode.REQUEST_SUCCEDED,
