@@ -7,4 +7,5 @@ dotenv.config();
     return token;
   };
 
+
 export default generateAuthToken;

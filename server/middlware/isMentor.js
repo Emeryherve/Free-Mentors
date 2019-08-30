@@ -4,10 +4,12 @@ import StatusCode from '../helpers/status_codes';
 
 dotenv.config();
 
+
 // eslint-disable-next-line consistent-return
 const isMentorUser = (req, res, next) => {
   const token = req.header('x-auth-token');
   if (!token) return res.status(401).send({ status: StatusCode.UNAUTHORIZED, error: 'Access denied. No token provided' });
+
 
   try {
     const { isMentor } = jwt.verify(token, process.env.JWTSECRET);
@@ -17,6 +19,7 @@ const isMentorUser = (req, res, next) => {
     next();
   } catch (error) {
     return res.status(400).send({ status: StatusCode.BAD_REQUEST, error: error.message });
+
   }
 };
 

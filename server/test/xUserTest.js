@@ -12,6 +12,7 @@ import users from '../models/fakerData/users';
 import generateAuthToken from '../helpers/jtoken_generator';
 import generateInvalidToken from '../helpers/invalid_token_gen';
 
+
 const { expect } = chai;
 
 chai.use(chaiHttp);
@@ -31,6 +32,7 @@ const nonToken = ' ';
 //Invalid signature token
 const invalidToken = generateInvalidToken(1,true,false);
 
+
 // Let's first grab the faked user info
 const {
   email,
@@ -41,7 +43,6 @@ const {
   occupation,
   expertise,
 } = users[0];
-
 // ############ SIGNUP TEST ############
 
 // Test signup for the user
@@ -263,9 +264,11 @@ describe('POST signin with invalid email, api/v1/auth/signin', () => {
   });
 });
 
+
 // ########## Mentor(api/v1/user) Test ###########
 
 describe('PATCH Change a user to a mentor(api/v1/user) with an id not an integer', () => {
+
   it('should return an error', (done) => {
     chai.request(app)
       .patch('/api/v1/user/k')
@@ -281,7 +284,9 @@ describe('PATCH Change a user to a mentor(api/v1/user) with an id not an integer
   });
 });
 
+
 describe('PATCH Change a user to a mentor(api/v1/user) with an id not found', () => {
+
   it('should return an error', (done) => {
     chai.request(app)
       .patch('/api/v1/user/0')
@@ -296,6 +301,7 @@ describe('PATCH Change a user to a mentor(api/v1/user) with an id not found', ()
       });
   });
 });
+
 
 describe('PATCH Change a user to a mentor(api/v1/user) user is already mentor', () => {
   it('should return an error', (done) => {
@@ -458,4 +464,5 @@ describe('GET a specific mentor (api/v1/mentors)', () => {
       });
   });
 });
+
 

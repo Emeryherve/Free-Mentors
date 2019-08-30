@@ -11,12 +11,14 @@ class User {
         firstName: 'KIREZI',
         lastName: 'Herve',
         email: 'herve1@gmail.com',
+
         password: 'password',
         address: 'Kigali,Rwanda',
         bio: 'Passion and interest is the key for success',
         occupation: 'Backend Developer',
         expertise: 'Software engineering',
         isAdmin: true,
+
         isMentor: false,
 
       },
@@ -87,9 +89,7 @@ class User {
         isAdmin: false,
         isMentor: true,
       },
-      
-      
-      
+
     ];
   }
 

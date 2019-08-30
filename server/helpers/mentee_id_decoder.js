@@ -4,6 +4,7 @@ import status from '../helpers/status_codes';
 
 dotenv.config();
 
+
 const getMenteeIdInToken = (token, res) => {
   try {
     const { id } = jwt.verify(token, process.env.JWTSECRET);

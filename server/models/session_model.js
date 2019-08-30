@@ -38,6 +38,7 @@ class Session {
         status: 'pending',
        },
     ];
+
   }
 
   // Tempolary keep mentorship request in memory
@@ -99,6 +100,7 @@ class Session {
       }
       return false;
     };
+
 }
 
 export default new Session();
