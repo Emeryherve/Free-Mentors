@@ -13,7 +13,13 @@
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "showCoverage": "start coverage/server/index.html"
   },
-  "keywords": ["Mentors","Free Mentors","Andela challenge"],
+
+  "keywords": [
+    "Mentors",
+    "Free Mentors",
+    "Andela challenge"
+  ],
+
   "author": "Herve",
   "license": "MIT",
   "dependencies": {

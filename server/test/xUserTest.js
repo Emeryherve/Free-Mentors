@@ -10,6 +10,7 @@ import status from '../helpers/status_codes';
 import users from '../models/fakerData/users';
 
 import generateAuthToken from '../helpers/jtoken_generator';
+import generateInvalidToken from '../helpers/invalid_token_gen';
 
 
 const { expect } = chai;
@@ -17,12 +18,20 @@ const { expect } = chai;
 chai.use(chaiHttp);
 // incorrect Id for testing 
 const invalidUserId = 0;
+// Already mentor user
+const {id} = users[13];
+const notMentorId = users[14];
 // Token with invalid user
 const tokenWithInvalidUser = generateAuthToken(0,true,false);
 // Token with no admin access right
 const tokenWithNoAdminAccess = generateAuthToken(1,false,false);
 // Token with Admin access
 const tokenWithAdminAccess = generateAuthToken(1,true,false);
+//No token provided
+const nonToken = ' ';
+//Invalid signature token
+const invalidToken = generateInvalidToken(1,true,false);
+
 
 // Let's first grab the faked user info
 const {
@@ -34,8 +43,6 @@ const {
   occupation,
   expertise,
 } = users[0];
-
-
 // ############ SIGNUP TEST ############
 
 // Test signup for the user
@@ -257,9 +264,11 @@ describe('POST signin with invalid email, api/v1/auth/signin', () => {
   });
 });
 
-// ########## Mentor Test ###########
 
-describe('PATCH Change a user to a mentor with an id not an integer', () => {
+// ########## Mentor(api/v1/user) Test ###########
+
+describe('PATCH Change a user to a mentor(api/v1/user) with an id not an integer', () => {
+
   it('should return an error', (done) => {
     chai.request(app)
       .patch('/api/v1/user/k')
@@ -275,7 +284,9 @@ describe('PATCH Change a user to a mentor with an id not an integer', () => {
   });
 });
 
-describe('PATCH Change a user to a mentor with an id not found', () => {
+
+describe('PATCH Change a user to a mentor(api/v1/user) with an id not found', () => {
+
   it('should return an error', (done) => {
     chai.request(app)
       .patch('/api/v1/user/0')
@@ -290,4 +301,168 @@ describe('PATCH Change a user to a mentor with an id not found', () => {
       });
   });
 });
+
+
+describe('PATCH Change a user to a mentor(api/v1/user) user is already mentor', () => {
+  it('should return an error', (done) => {
+    chai.request(app)
+      .patch('/api/v1/user/2')
+      .set('x-auth-token', tokenWithAdminAccess)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal(status.FORBIDDEN);
+        expect(res.body.error).to.equal(`The user with ${id} id is already a mentor!.`);
+        expect(res.status).to.equal(status.FORBIDDEN);
+        done();
+      });
+  });
+});
+
+describe('PATCH Change a user to a mentor(api/v1/user)', () => {
+  it('should return user is changed to mentor successfully', (done) => {
+    chai.request(app)
+      .patch('/api/v1/user/3')
+      .set('x-auth-token',tokenWithAdminAccess)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal(status.REQUEST_SUCCEDED);
+        expect(res.body.message).to.equal('User account changed to mentor');
+        expect(res.status).to.equal(status.REQUEST_SUCCEDED);
+        done();
+      });
+  });
+});
+
+describe('PATCH Change a user to a mentor with token of invalid id(api/v1/user)', () => {
+  it('should return token has no matching user', (done) => {
+    chai.request(app)
+      .patch('/api/v1/user/3')
+      .set('x-auth-token',tokenWithInvalidUser)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal(status.NOT_FOUND);
+        expect(res.body.error).to.equal(`The User associated with this token of ${invalidUserId} id was banned or deleted!.`);
+        expect(res.status).to.equal(status.NOT_FOUND);
+        done();
+      });
+  });
+});
+
+
+describe('PATCH Change a user to a mentor With No token provided (api/v1/user)', () => {
+  it('should return no token provided ', (done) => {
+    chai.request(app)
+      .patch('/api/v1/user/3')
+      .set('x-auth-token',nonToken)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal(status.UNAUTHORIZED);
+        expect(res.body.error).to.equal('Access denied. No token provided');
+        expect(res.status).to.equal(status.UNAUTHORIZED);
+        done();
+      });
+  });
+});
+
+describe('PATCH Change a user to a mentor With Invalid JWT token (api/v1/user)', () => {
+  it('should return invalid JWT token ', (done) => {
+    chai.request(app)
+      .patch('/api/v1/user/3')
+      .set('x-auth-token',invalidToken)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal(status.BAD_REQUEST);
+        expect(res.body.error).to.equal('invalid signature');
+        expect(res.status).to.equal(status.BAD_REQUEST);
+        done();
+      });
+  });
+});
+
+describe('PATCH Change a user to a mentor With token of no Admin access (api/v1/user)', () => {
+  it('should return user has no admin access to change user ', (done) => {
+    chai.request(app)
+      .patch('/api/v1/user/3')
+      .set('x-auth-token',tokenWithNoAdminAccess)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal(status.FORBIDDEN);
+        expect(res.body.error).to.equal('Oops!, you are not allowed to perform this action, Please You must be an admin to do so!.');
+        expect(res.status).to.equal(status.FORBIDDEN);
+        done();
+      });
+  });
+});
+
+// ########## Mentor(/mentors) Test ###########
+describe('GET Get all mentors (api/v1/mentors)', () => {
+  it('should return all mentors available ', (done) => {
+    chai.request(app)
+      .get('/api/v1/mentors')
+      .set('x-auth-token',tokenWithNoAdminAccess)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal(status.REQUEST_SUCCEDED);
+        expect(res.status).to.equal(status.REQUEST_SUCCEDED);
+        done();
+      });
+  });
+});
+
+describe('GET get all mentors With No token provided (api/v1/mentors)', () => {
+  it('should return no token provided ', (done) => {
+    chai.request(app)
+      .get('/api/v1/mentors')
+      .set('x-auth-token',nonToken)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal(status.UNAUTHORIZED);
+        expect(res.body.error).to.equal('Access denied. No token provided');
+        expect(res.status).to.equal(status.UNAUTHORIZED);
+        done();
+      });
+  });
+});
+
+// ########## Mentor(/mentors/:mentorId) Test ###########
+
+describe('GET a specific mentor(api/v1/mentors/:mentorId) with an id not found', () => {
+  it('should return mentor id not exist', (done) => {
+    chai.request(app)
+      .get('/api/v1/mentors/0')
+      .set('x-auth-token', tokenWithAdminAccess)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal(status.NOT_FOUND);
+        expect(res.body.error).to.equal(`The user with ${invalidUserId} id is not found!.`);
+        expect(res.status).to.equal(status.NOT_FOUND);
+        done();
+      });
+  });
+});
+
+describe('GET a specific mentor (api/v1/mentors)', () => {
+  it('should return a mentor ', (done) => {
+    chai.request(app)
+      .get('/api/v1/mentors/2')
+      .set('x-auth-token',tokenWithNoAdminAccess)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal(status.REQUEST_SUCCEDED);
+        expect(res.status).to.equal(status.REQUEST_SUCCEDED);
+        done();
+      });
+  });
+});
+
 

@@ -122,5 +122,34 @@ const users = [
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
   },
+  // 13 User with isMentor = true
+    {
+      id: 2,
+      firstName: 'KIREZI',
+      lastName: 'Herve',
+      email: 'herve@gmail.com',
+      password: ' ',
+      address: 'Kigali,Rwanda',
+      bio: 'Passion and interest is the key for success',
+      occupation: 'Backend Developer',
+      expertise: 'Software engineering',
+      isAdmin: false,
+      isMentor: true,
+
+    },
+    {
+      id: 3,
+      firstName: 'KIREZI',
+      lastName: 'Herve',
+      email: 'herve3@gmail.com',
+      password: 'password',
+      address: 'Kigali,Rwanda',
+      bio: 'Passion and interest is the key for success',
+      occupation: 'Backend Developer',
+      expertise: 'Software engineering',
+      isAdmin: false,
+      isMentor: false,
+
+    },
 ];
 export default users;

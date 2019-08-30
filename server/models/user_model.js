@@ -10,16 +10,86 @@ class User {
         id: 1,
         firstName: 'KIREZI',
         lastName: 'Herve',
-        email: 'herve@gmail.com',
+        email: 'herve1@gmail.com',
+
         password: 'password',
         address: 'Kigali,Rwanda',
         bio: 'Passion and interest is the key for success',
         occupation: 'Backend Developer',
         expertise: 'Software engineering',
         isAdmin: true,
+
+        isMentor: false,
+
+      },
+      {
+        id: 2,
+        firstName: 'KIREZI',
+        lastName: 'Herve',
+        email: 'herve2@gmail.com',
+        password: 'password',
+        address: 'Kigali,Rwanda',
+        bio: 'Passion and interest is the key for success',
+        occupation: 'Backend Developer',
+        expertise: 'Software engineering',
+        isAdmin: false,
         isMentor: true,
 
       },
+      {
+        id: 3,
+        firstName: 'KIREZI',
+        lastName: 'Herve',
+        email: 'herve3@gmail.com',
+        password: 'password',
+        address: 'Kigali,Rwanda',
+        bio: 'Passion and interest is the key for success',
+        occupation: 'Backend Developer',
+        expertise: 'Software engineering',
+        isAdmin: false,
+        isMentor: false,
+
+      },
+      {
+        id: 4,
+        firstName: 'KIREZI',
+        lastName: 'Herve',
+        email: 'herve4@gmail.com',
+        password: 'password',
+        address: 'Kigali,Rwanda',
+        bio: 'Passion and interest is the key for success',
+        occupation: 'Backend Developer',
+        expertise: 'Software engineering',
+        isAdmin: false,
+        isMentor: true,
+      },
+      {
+        id: 5,
+        firstName: 'KIREZI',
+        lastName: 'Herve',
+        email: 'herve5@gmail.com',
+        password: 'password',
+        address: 'Kigali,Rwanda',
+        bio: 'Passion and interest is the key for success',
+        occupation: 'Backend Developer',
+        expertise: 'Software engineering',
+        isAdmin: false,
+        isMentor: true,
+      },
+      {
+        id: 6,
+        firstName: 'KIREZI',
+        lastName: 'Herve',
+        email: 'herve6@gmail.com',
+        password: 'password',
+        address: 'Kigali,Rwanda',
+        bio: 'Passion and interest is the key for success',
+        occupation: 'Backend Developer',
+        expertise: 'Software engineering',
+        isAdmin: false,
+        isMentor: true,
+      },
+
     ];
   }
 
@@ -107,7 +177,6 @@ class User {
       }
       return false;
     };
-
     // Update isMentor flag to true
     isChangedToMentor = (userId) => {
       const user = this.users.find(u => u.id === parseInt(userId, 10));
