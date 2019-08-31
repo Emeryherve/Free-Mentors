@@ -37,7 +37,7 @@ The project is composed of two different parts:
 
    1. First download and install [Node JS](https://nodejs.org/en/download/)
    2. Download and install [Postman](https://www.getpostman.com/downloads/)
-   3. Clone the project. [WayFarer](https://github.com/Emeryherve/Free-Mentors)
+   3. Clone the project. [Free-Mentor](https://github.com/Emeryherve/Free-Mentors)
    4. Run `npm install` (`sudo apt install` for linux users) command for installing all project dependencies
 
 ## Running the tests
@@ -49,7 +49,7 @@ The project is composed of two different parts:
 ## Running the UI Template
 
   - Just run `index.html` from the cloned project
-  - OR simply use ghpage to run [WayFarer UI Template](https://Emeryherve.github.io/Free-Mentors/UI/)
+  - OR simply use ghpage to run [Free-Mentor UI Template](https://Emeryherve.github.io/Free-Mentors/UI/)
  
 ## Built With
 * Server
