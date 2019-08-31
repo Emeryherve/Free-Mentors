@@ -13,7 +13,7 @@
       "url": "https://github.com/Emeryherve/Free-Mentors/blob/develop/LICENCE.md"
      }
     },
-    "host": "127.0.0.1:3000",
+    "host": "https://free--mentor.herokuapp.com",
     "basePath": "/api/v1",
     "tags": [
      {
