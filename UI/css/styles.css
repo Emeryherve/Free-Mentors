@@ -50,6 +50,7 @@ body{
   }
   .bordered-grid:hover{
     background-color: #c69c6d86;
+    cursor: pointer;
   }
   .centered{
     text-align: center;
