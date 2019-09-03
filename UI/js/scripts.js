@@ -3,7 +3,7 @@ const validate = () => {
   let msg = '';
   const fnames = document.querySelector('#fullname').value;
   const uname = document.querySelector('#username').value;
-  const email = document.querySelector('#usermail').value;
+  const email = document.querySelector('#email').value;
   const pswd = document.querySelector('#userpswd').value;
   const repswd = document.querySelector('#confpswd').value;
   // let exp =" /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/";
@@ -46,6 +46,7 @@ let dialogbox = (message) => { // Get the modal
 // Function close the dialog box
 const closeDialog = () => {
   document.querySelector('.modal').style.display = 'none';
+  document.querySelector('.modal-view').style.display = 'none';
   const modal = document.querySelector('#dialogbox');
   modal.style.display = 'none';
 };
@@ -78,7 +79,18 @@ const closeModalView = () => {
 const sessionmentor = () => {
 
 };
+const signin = () => {
+  const email = document.querySelector('#email').value;
+  const pswd = document.querySelector('#pswd').value;
 
+  if(email === 'admin@free--mentor.com'){
+    location.replace('../pages/admin/manage-users.html')
+  }
+  if(email === 'mentor@free--mentor.com'){
+    location.replace('../pages/mentor/manage_session.html')
+  }
+  dialogbox('Incorrect email or password')
+}
 
 // view a user
 const viewUser = () => {

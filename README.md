@@ -17,6 +17,10 @@ The project is composed of two different parts:
 * UI 
    * Any Web Browser (We recommend using Google Chrome)
    * Text Editor (We recommend using VSCode)
+   #### User credentials
+        - Admin email: 'admin@free--mentor.com'
+        - Mentor email: 'mentor@free--mentor.com'
+        - Password: [use any password]
 
 * API Endpoints
    * Node JS
@@ -87,3 +91,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENCE.md) f
 ## Acknowledgments
 
 * [Andela Kigali](https://andela.com/)
+
