@@ -11,7 +11,7 @@ class Model {
     });
 
     this.pool.on('error', (err, client) => {
-      console.log('Wayfarer-error: ', err);
+      console.log('FreeMentor-error: ', err);
     });
   }
 
