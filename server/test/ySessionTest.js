@@ -300,8 +300,8 @@ describe('POST Create a mentorship session request with whitespaced questions, a
         .set('Accept', 'application/json')
         .end((err, res) => {
           expect(res.body).to.be.an('object');
-          expect(res.status).to.equal(status.FORBIDDEN);
-          expect(res.body.status).to.equal(status.FORBIDDEN);
+          expect(res.status).to.equal(status.REQUEST_CONFLICT);
+          expect(res.body.status).to.equal(status.REQUEST_CONFLICT);
           expect(res.body.error).to.equal('OOps! You can not reject the accepted Session Request!');
           done();
         });
@@ -316,8 +316,8 @@ describe('POST Create a mentorship session request with whitespaced questions, a
         .set('Accept', 'application/json')
         .end((err, res) => {
           expect(res.body).to.be.an('object');
-          expect(res.status).to.equal(status.FORBIDDEN);
-          expect(res.body.status).to.equal(status.FORBIDDEN);
+          expect(res.status).to.equal(status.REQUEST_CONFLICT);
+          expect(res.body.status).to.equal(status.REQUEST_CONFLICT);
           expect(res.body.error).to.equal(`This Session Request with ${sessions[2].sessionId} id is already rejected!`);
           done();
         });
