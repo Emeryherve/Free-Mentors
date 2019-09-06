@@ -56,7 +56,7 @@ class SessionController {
         });
       }
       if (Session.isAlreadyAccepted(sessionId)) {
-        return res.status(StatusCode.FORBIDDEN).send({
+        return res.status(StatusCode.REQUEST_CONFLICT).send({
 
           status: StatusCode.REQUEST_CONFLICT,
           error: `This Session Request with ${sessionId} id is already accepted!`,
@@ -98,7 +98,7 @@ class SessionController {
         });
       }
       if (Session.isAlreadyRejected(sessionId)) {
-        return res.status(StatusCode.FORBIDDEN).send({
+        return res.status(StatusCode.REQUEST_CONFLICT).send({
 
           status: StatusCode.REQUEST_CONFLICT,
           error: `This Session Request with ${sessionId} id is already rejected!`,

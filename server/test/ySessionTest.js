@@ -202,8 +202,8 @@ describe('POST Create a mentorship session request with whitespaced questions, a
         .set('Accept', 'application/json')
         .end((err, res) => {
           expect(res.body).to.be.an('object');
-          expect(res.status).to.equal(status.FORBIDDEN);
-          expect(res.body.status).to.equal(status.FORBIDDEN);
+          expect(res.status).to.equal(status.REQUEST_CONFLICT);
+          expect(res.body.status).to.equal(status.REQUEST_CONFLICT);
           expect(res.body.error).to.equal(`This Session Request with ${sessions[1].sessionId} id is already accepted!`);
           done();
         });
@@ -293,15 +293,15 @@ describe('POST Create a mentorship session request with whitespaced questions, a
   });
 
   describe('PATCH reject a mentorship session request: Rejected session api/v1/sessions/:sessionId/reject', () => {
-    it('should return session is already accepted', (done) => {
+    it('should not reject the session', (done) => {
       chai.request(app)
         .patch('/api/v1/sessions/2/reject')
         .set('x-auth-token', mentorToken)
         .set('Accept', 'application/json')
         .end((err, res) => {
           expect(res.body).to.be.an('object');
-          expect(res.status).to.equal(status.REQUEST_CONFLICT);
-          expect(res.body.status).to.equal(status.REQUEST_CONFLICT);
+          expect(res.status).to.equal(status.FORBIDDEN);
+          expect(res.body.status).to.equal(status.FORBIDDEN);
           expect(res.body.error).to.equal('OOps! You can not reject the accepted Session Request!');
           done();
         });
