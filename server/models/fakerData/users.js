@@ -4,9 +4,6 @@ const fakerMail = faker.internet.email();
 const fakerPassword = faker.internet.password(8, true);
 const users = [
 
-  // ############# Signup users ################
-
-  // 0 Correct user info
   {
     email: fakerMail,
     firstName: faker.name.firstName(),
@@ -18,7 +15,6 @@ const users = [
     expertise: faker.name.jobTitle(),
   },
 
-  // 1 Correct user info
   {
     email: faker.internet.email(),
     firstName: faker.name.firstName(),
@@ -30,7 +26,6 @@ const users = [
     expertise: faker.name.jobTitle(),
   },
 
-  // 2 User with invalid email
   {
     email: faker.name.lastName,
     firstName: faker.name.firstName(),
@@ -42,7 +37,6 @@ const users = [
     expertise: faker.name.jobTitle(),
   },
 
-  // 3 User with incomplete info
   {
     email: faker.internet.email(),
     firstName: faker.name.firstName(),
@@ -52,8 +46,6 @@ const users = [
     bio: faker.name.jobDescriptor(),
     occupation: faker.name.jobArea(),
   },
-
-  // 4 User with incomplte password
   {
     email: faker.internet.email(),
     firstName: faker.name.firstName(),
@@ -64,32 +56,25 @@ const users = [
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
   },
-  // ############# Signin users ################
-  // 5 Correct registered credentials
   {
     email: fakerMail,
     password: fakerPassword,
   },
-  // 6 Incorrect password
   {
     email: fakerMail,
     password: 'faker_password',
   },
-  // 7 email missing
   {
     password: fakerPassword,
   },
-  // 8 Password missing
   {
     email: fakerMail,
   },
 
-  // 9 Invalid email
   {
     email: `${fakerMail}@gmail`,
     password: fakerPassword,
   },
-  // 10 first name with whitespace
   {
     email: faker.internet.email(),
     firstName: ' ',
@@ -100,7 +85,6 @@ const users = [
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
   },
-  // 11 last name with whitespace
   {
     email: faker.internet.email(),
     lastName: ' ',
@@ -111,7 +95,6 @@ const users = [
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
   },
-  // 12 password with whitespace
   {
     email: faker.internet.email(),
     password: ' ',
@@ -122,34 +105,33 @@ const users = [
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
   },
-  // 13 User with isMentor = true
-    {
-      id: 2,
-      firstName: 'KIREZI',
-      lastName: 'Herve',
-      email: 'herve@gmail.com',
-      password: ' ',
-      address: 'Kigali,Rwanda',
-      bio: 'Passion and interest is the key for success',
-      occupation: 'Backend Developer',
-      expertise: 'Software engineering',
-      isAdmin: false,
-      isMentor: true,
+  {
+    id: 2,
+    firstName: 'KIREZI',
+    lastName: 'Herve',
+    email: 'herve@gmail.com',
+    password: ' ',
+    address: 'Kigali,Rwanda',
+    bio: 'Passion and interest is the key for success',
+    occupation: 'Backend Developer',
+    expertise: 'Software engineering',
+    isAdmin: false,
+    isMentor: true,
 
-    },
-    {
-      id: 3,
-      firstName: 'KIREZI',
-      lastName: 'Herve',
-      email: 'herve3@gmail.com',
-      password: 'password',
-      address: 'Kigali,Rwanda',
-      bio: 'Passion and interest is the key for success',
-      occupation: 'Backend Developer',
-      expertise: 'Software engineering',
-      isAdmin: false,
-      isMentor: false,
+  },
+  {
+    id: 3,
+    firstName: 'KIREZI',
+    lastName: 'Herve',
+    email: 'herve3@gmail.com',
+    password: 'password',
+    address: 'Kigali,Rwanda',
+    bio: 'Passion and interest is the key for success',
+    occupation: 'Backend Developer',
+    expertise: 'Software engineering',
+    isAdmin: false,
+    isMentor: false,
 
-    },
+  },
 ];
 export default users;

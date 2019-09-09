@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import status from '../helpers/status_codes';
+import status from './status_codes';
 
 dotenv.config();
 

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import StatusCode from '../helpers/status_codes';
 
 dotenv.config();
@@ -17,7 +17,6 @@ const isAdminUser = (req, res, next) => {
     next();
   } catch (error) {
     return res.status(400).send({ status: StatusCode.BAD_REQUEST, error: error.message });
-
   }
 };
 

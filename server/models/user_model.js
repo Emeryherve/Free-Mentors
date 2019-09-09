@@ -93,7 +93,6 @@ class User {
     ];
   }
 
-  // SignUp
     create = (payload) => {
       const {
         firstName, lastName,
@@ -128,10 +127,7 @@ class User {
       return newUser;
     };
 
-    // SignIn
     login = (payload) => {
-    // check if user email and password exists
-    // in our users array
       const { email, password } = payload;
       const user = this.users.find(u => (u.email === email) && ((u.password === password)));
       if (!user) {
@@ -163,13 +159,10 @@ class User {
       return result;
     };
 
-    // Email conflict checker
     isEmailTaken = email => this.users.find(u => u.email === email);
 
-    // User auto-incremet id availability checker
     isUserExist = userId => this.users.find(u => u.id === parseInt(userId, 10));
 
-    // isMentor flag is set to true cheker
     isAlreadyAmentor = (userId) => {
       const { isMentor } = this.users.find(u => u.id === parseInt(userId, 10));
       if (isMentor) {
@@ -177,7 +170,7 @@ class User {
       }
       return false;
     };
-    // Update isMentor flag to true
+
     isChangedToMentor = (userId) => {
       const user = this.users.find(u => u.id === parseInt(userId, 10));
       user.isMentor = true;
@@ -187,7 +180,6 @@ class User {
       return false;
     };
 
-    // Return all users who are mentors(isMentor: true)
     getAll = () => {
       const { users } = this;
       const mentors = [];
@@ -201,13 +193,11 @@ class User {
       return mentors;
     };
 
-    // Grab specific mentor
     getMentor = (mentorId) => {
       const mentor = this.users.find(u => u.id === parseInt(mentorId, 10));
       return replaceIdWithMentorId(mentor);
     };
 
-    // Grab Mentee email for Sessions
     getMenteeEmailById = (menteeId) => {
       const { email } = this.users.find(u => u.id === parseInt(menteeId, 10));
       return email;
