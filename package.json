@@ -7,8 +7,9 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "nyc --reporter=text --reporter=html mocha server/test --require @babel/polyfill --require @babel/register --timeout 10000 --exit",
+    "test": "babel-node ./server/models/tableSetup.js createTables && nyc --reporter=text --reporter=html mocha server/test --require @babel/polyfill --require @babel/register --timeout 10000 --exit",
     "start": "babel-node server/index.js",
+    "queries": "babel-node ./server/models/tableSetup.js createTables",
     "dev-start": "nodemon --exec babel-node server/index.js",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "showCoverage": "start coverage/server/index.html"
@@ -27,6 +28,7 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@hapi/joi": "^15.1.0",
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
