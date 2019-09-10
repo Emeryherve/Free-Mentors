@@ -16,24 +16,14 @@ import generateInvalidToken from '../helpers/invalid_token_gen';
 const { expect } = chai;
 
 chai.use(chaiHttp);
-// incorrect Id for testing 
 const invalidUserId = 0;
-// Already mentor user
-const {id} = users[13];
-const notMentorId = users[14];
-// Token with invalid user
-const tokenWithInvalidUser = generateAuthToken(0,true,false);
-// Token with no admin access right
-const tokenWithNoAdminAccess = generateAuthToken(1,false,false);
-// Token with Admin access
-const tokenWithAdminAccess = generateAuthToken(1,true,false);
-//No token provided
+const { id } = users[13];
+const tokenWithInvalidUser = generateAuthToken(0, true, false);
+const tokenWithNoAdminAccess = generateAuthToken(1, false, false);
+const tokenWithAdminAccess = generateAuthToken(1, true, false);
 const nonToken = ' ';
-//Invalid signature token
-const invalidToken = generateInvalidToken(1,true,false);
+const invalidToken = generateInvalidToken(1, true, false);
 
-
-// Let's first grab the faked user info
 const {
   email,
   firstName,
@@ -43,9 +33,21 @@ const {
   occupation,
   expertise,
 } = users[0];
-// ############ SIGNUP TEST ############
 
-// Test signup for the user
+describe('POST /auth/signup handle non-existing route', () => {
+  it('should return non existing route', (done) => {
+    chai.request(app)
+      .post('/api/v1/auth/signupmm')
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(status.NOT_FOUND);
+        expect(res.body.status).to.equal(status.NOT_FOUND);
+        done();
+      });
+  });
+});
+
 describe('POST sign up with whitespaced firstName, api/v1/auth/signup', () => {
   it('should return an error', (done) => {
     chai.request(app)
@@ -111,7 +113,7 @@ describe('POST sign up successfully, api/v1/auth/signup', () => {
       });
   });
 });
-// Test for email existance
+
 describe('POST email already exist, api/v1/auth/signup', () => {
   it('should return {email} already exists', (done) => {
     chai.request(app)
@@ -127,7 +129,6 @@ describe('POST email already exist, api/v1/auth/signup', () => {
   });
 });
 
-// Test for short password
 describe('POST sign up with short password api/v1/auth/signup', () => {
   it('should return error when user entered short password', (done) => {
     chai.request(app)
@@ -143,7 +144,6 @@ describe('POST sign up with short password api/v1/auth/signup', () => {
   });
 });
 
-// Test for user data incompleteness
 describe('POST sign up with incomplete data api/v1/auth/signup', () => {
   it('should return error when user signup details is incomplete', (done) => {
     chai.request(app)
@@ -159,7 +159,6 @@ describe('POST sign up with incomplete data api/v1/auth/signup', () => {
   });
 });
 
-// Test for email validation
 describe('POST sign up with invalid email api/v1/auth/signup', () => {
   it('should return error when user email is invalid', (done) => {
     chai.request(app)
@@ -175,9 +174,6 @@ describe('POST sign up with invalid email api/v1/auth/signup', () => {
   });
 });
 
-// ############ SIGNin TEST ############
-
-// Test for signin successful
 describe('POST signin successfully, api/v1/auth/signin', () => {
   it('should return signin successfullty status', (done) => {
     chai.request(app)
@@ -200,7 +196,6 @@ describe('POST signin successfully, api/v1/auth/signin', () => {
   });
 });
 
-// Test for credential incorrectness
 describe('POST signin failed, api/v1/auth/signin', () => {
   it('should return signin error status', (done) => {
     chai.request(app)
@@ -216,7 +211,6 @@ describe('POST signin failed, api/v1/auth/signin', () => {
   });
 });
 
-// Test for email missing
 describe('POST signin with incomplete data, api/v1/auth/signin', () => {
   it('should return email is required', (done) => {
     chai.request(app)
@@ -232,7 +226,7 @@ describe('POST signin with incomplete data, api/v1/auth/signin', () => {
   });
 });
 
-// Test for password missing
+
 describe('POST signin with incomplete data, api/v1/auth/signin', () => {
   it('should return password is required', (done) => {
     chai.request(app)
@@ -248,7 +242,6 @@ describe('POST signin with incomplete data, api/v1/auth/signin', () => {
   });
 });
 
-// Test for sigin email validation
 describe('POST signin with invalid email, api/v1/auth/signin', () => {
   it('should return email must be valid', (done) => {
     chai.request(app)
@@ -265,10 +258,7 @@ describe('POST signin with invalid email, api/v1/auth/signin', () => {
 });
 
 
-// ########## Mentor(api/v1/user) Test ###########
-
 describe('PATCH Change a user to a mentor(api/v1/user) with an id not an integer', () => {
-
   it('should return an error', (done) => {
     chai.request(app)
       .patch('/api/v1/user/k')
@@ -286,7 +276,6 @@ describe('PATCH Change a user to a mentor(api/v1/user) with an id not an integer
 
 
 describe('PATCH Change a user to a mentor(api/v1/user) with an id not found', () => {
-
   it('should return an error', (done) => {
     chai.request(app)
       .patch('/api/v1/user/0')
@@ -323,7 +312,7 @@ describe('PATCH Change a user to a mentor(api/v1/user)', () => {
   it('should return user is changed to mentor successfully', (done) => {
     chai.request(app)
       .patch('/api/v1/user/3')
-      .set('x-auth-token',tokenWithAdminAccess)
+      .set('x-auth-token', tokenWithAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -339,7 +328,7 @@ describe('PATCH Change a user to a mentor with token of invalid id(api/v1/user)'
   it('should return token has no matching user', (done) => {
     chai.request(app)
       .patch('/api/v1/user/3')
-      .set('x-auth-token',tokenWithInvalidUser)
+      .set('x-auth-token', tokenWithInvalidUser)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -356,7 +345,7 @@ describe('PATCH Change a user to a mentor With No token provided (api/v1/user)',
   it('should return no token provided ', (done) => {
     chai.request(app)
       .patch('/api/v1/user/3')
-      .set('x-auth-token',nonToken)
+      .set('x-auth-token', nonToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -372,7 +361,7 @@ describe('PATCH Change a user to a mentor With Invalid JWT token (api/v1/user)',
   it('should return invalid JWT token ', (done) => {
     chai.request(app)
       .patch('/api/v1/user/3')
-      .set('x-auth-token',invalidToken)
+      .set('x-auth-token', invalidToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -388,7 +377,7 @@ describe('PATCH Change a user to a mentor With token of no Admin access (api/v1/
   it('should return user has no admin access to change user ', (done) => {
     chai.request(app)
       .patch('/api/v1/user/3')
-      .set('x-auth-token',tokenWithNoAdminAccess)
+      .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -400,12 +389,11 @@ describe('PATCH Change a user to a mentor With token of no Admin access (api/v1/
   });
 });
 
-// ########## Mentor(/mentors) Test ###########
 describe('GET Get all mentors (api/v1/mentors)', () => {
   it('should return all mentors available ', (done) => {
     chai.request(app)
       .get('/api/v1/mentors')
-      .set('x-auth-token',tokenWithNoAdminAccess)
+      .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -420,7 +408,7 @@ describe('GET get all mentors With No token provided (api/v1/mentors)', () => {
   it('should return no token provided ', (done) => {
     chai.request(app)
       .get('/api/v1/mentors')
-      .set('x-auth-token',nonToken)
+      .set('x-auth-token', nonToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -431,8 +419,6 @@ describe('GET get all mentors With No token provided (api/v1/mentors)', () => {
       });
   });
 });
-
-// ########## Mentor(/mentors/:mentorId) Test ###########
 
 describe('GET a specific mentor(api/v1/mentors/:mentorId) with an id not found', () => {
   it('should return mentor id not exist', (done) => {
@@ -454,7 +440,7 @@ describe('GET a specific mentor (api/v1/mentors)', () => {
   it('should return a mentor ', (done) => {
     chai.request(app)
       .get('/api/v1/mentors/2')
-      .set('x-auth-token',tokenWithNoAdminAccess)
+      .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -464,5 +450,3 @@ describe('GET a specific mentor (api/v1/mentors)', () => {
       });
   });
 });
-
-

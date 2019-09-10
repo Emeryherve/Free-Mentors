@@ -9,39 +9,37 @@ class Session {
         sessionId: 1,
         mentorId: 2,
         menteeId: 1,
-        questions:'Just for test',
-        menteeEmail:'herve2@gmail.com',
+        questions: 'Just for test',
+        menteeEmail: 'herve2@gmail.com',
         status: 'pending',
-       },
-       {
+      },
+      {
         sessionId: 2,
         mentorId: 4,
         menteeId: 2,
-        questions:'Just for test',
-        menteeEmail:'herve4@gmail.com',
+        questions: 'Just for test',
+        menteeEmail: 'herve4@gmail.com',
         status: 'accepted',
-       },
-       {
+      },
+      {
         sessionId: 3,
         mentorId: 5,
         menteeId: 3,
-        questions:'Just for test',
-        menteeEmail:'herve5@gmail.com',
+        questions: 'Just for test',
+        menteeEmail: 'herve5@gmail.com',
         status: 'rejected',
-       },
-       {
+      },
+      {
         sessionId: 4,
         mentorId: 5,
         menteeId: 3,
-        questions:'Just for test',
-        menteeEmail:'herve5@gmail.com',
+        questions: 'Just for test',
+        menteeEmail: 'herve5@gmail.com',
         status: 'pending',
-       },
+      },
     ];
-
   }
 
-  // Tempolary keep mentorship request in memory
     create = (payload, token, res) => {
       const {
         mentorId, questions,
@@ -66,41 +64,33 @@ class Session {
       return newSession;
     };
 
-    // mentorship request availability checker
-    isSessionExist = sId => this.sessions.find(s => s.sessionId === parseInt(sId));
+    isSessionExist = sId => this.sessions.find(s => s.sessionId === parseInt(sId, 10));
 
-    // Aprove mentorship rquest
     accept = ({ sessionId }) => {
-      const session = this.isSessionExist(sessionId);
-      session.status = 'accepted';
-      return session;
+      const sessionForAccept = this.isSessionExist(sessionId);
+      sessionForAccept.status = 'accepted';
+      return sessionForAccept;
     };
 
-    // mentorship request status checker
     isAlreadyAccepted = (sessionId) => {
-      const session = this.isSessionExist(sessionId);
-      if (session.status === 'accepted') {
+      if (this.isSessionExist(sessionId).status === 'accepted') {
         return true;
       }
       return false;
     };
 
-    // Disapprove mentorship request
     reject = ({ sessionId }) => {
-      const session = this.isSessionExist(sessionId);
-      session.status = 'rejected';
-      return session;
+      const sessionForReject = this.isSessionExist(sessionId);
+      sessionForReject.status = 'rejected';
+      return sessionForReject;
     };
 
-    // mentorship request status checker
     isAlreadyRejected = (sessionId) => {
-      const session = this.isSessionExist(sessionId);
-      if (session.status === 'rejected') {
+      if (this.isSessionExist(sessionId).status === 'rejected') {
         return true;
       }
       return false;
     };
-
 }
 
 export default new Session();
