@@ -13,6 +13,8 @@ const users = [
     bio: faker.name.jobDescriptor(),
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
+    isAdmin: false,
+    isMentor: true,
   },
 
   {
@@ -24,6 +26,8 @@ const users = [
     bio: faker.name.jobDescriptor(),
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
+    isAdmin: false,
+    isMentor: true,
   },
 
   {
@@ -35,6 +39,8 @@ const users = [
     bio: faker.name.jobDescriptor(),
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
+    isAdmin: false,
+    isMentor: true,
   },
 
   {
@@ -45,6 +51,8 @@ const users = [
     address: faker.address.cityPrefix(),
     bio: faker.name.jobDescriptor(),
     occupation: faker.name.jobArea(),
+    isAdmin: false,
+    isMentor: true,
   },
   {
     email: faker.internet.email(),
@@ -55,6 +63,8 @@ const users = [
     bio: faker.name.jobDescriptor(),
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
+    isAdmin: false,
+    isMentor: true,
   },
   {
     email: fakerMail,
@@ -84,6 +94,8 @@ const users = [
     bio: faker.name.jobDescriptor(),
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
+    isAdmin: false,
+    isMentor: true,
   },
   {
     email: faker.internet.email(),
@@ -94,6 +106,8 @@ const users = [
     bio: faker.name.jobDescriptor(),
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
+    isAdmin: false,
+    isMentor: true,
   },
   {
     email: faker.internet.email(),
@@ -104,6 +118,8 @@ const users = [
     bio: faker.name.jobDescriptor(),
     occupation: faker.name.jobArea(),
     expertise: faker.name.jobTitle(),
+    isAdmin: false,
+    isMentor: true,
   },
   {
     id: 2,
@@ -124,7 +140,7 @@ const users = [
     firstName: 'KIREZI',
     lastName: 'Herve',
     email: 'herve3@gmail.com',
-    password: 'password',
+    password: '$2b$10$nhZCvSMTdKg/MI7gVTWwj.WCeq7tTSpr4xj4xzVmIbdCoHnwj9nwy',
     address: 'Kigali,Rwanda',
     bio: 'Passion and interest is the key for success',
     occupation: 'Backend Developer',

@@ -1,6 +1,6 @@
 import User from './user_model';
 import getMenteeIdInToken from '../helpers/mentee_id_decoder';
-import StatusCode from '../helpers/status_codes';
+import { RESOURCE_CREATED } from '../helpers/status_codes';
 
 class Session {
   constructor() {
@@ -57,7 +57,7 @@ class Session {
       };
       this.sessions.push(newSession);
       newSession = {
-        status: StatusCode.RESOURCE_CREATED,
+        status: RESOURCE_CREATED,
         data: newSession,
       };
 
