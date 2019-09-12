@@ -1,7 +1,8 @@
-import User from '../models/user_model';
 import Model from '../models/dbQuery';
 import hashPassword from '../helpers/hashPassword';
 import generateAuthToken from '../helpers/jtoken_generator';
+import replaceIdWithMentorId from '../helpers/id_to_mentorId';
+
 import {
   REQUEST_SUCCEDED, RESOURCE_CREATED,
   BAD_REQUEST, FORBIDDEN, NOT_FOUND,
@@ -109,57 +110,72 @@ class UserController {
       }
     };
 
-    changeUserToMentor = (req, res) => {
-      const { userId } = req.params;
-      if (isNaN(userId.trim())) {
-        return res.status(BAD_REQUEST).send({
-          status: BAD_REQUEST,
-          error: 'User id should be an integer',
-        });
-      }
-      if (!User.isUserExist(userId)) {
-        return res.status(NOT_FOUND).send({
-          status: NOT_FOUND,
-          error: `The user with ${userId} id is not found!.`,
-        });
-      }
-      if (User.isAlreadyAmentor(userId)) {
-        return res.status(FORBIDDEN).send({
-          status: FORBIDDEN,
-          error: `The user with ${userId} id is already a mentor!.`,
-        });
-      }
-      if (User.isChangedToMentor(userId)) {
-        return res.status(REQUEST_SUCCEDED).send({
-          status: REQUEST_SUCCEDED,
-          message: 'User account changed to mentor',
+    static changeUserToMentor = async (req, res) => {
+      try {
+        const { userId } = req.params;
+        if (isNaN(userId.trim())) {
+          return res.status(BAD_REQUEST).send({
+            status: BAD_REQUEST,
+            error: 'User id should be an integer',
+          });
+        }
+        const user = await this.model().select('*', 'id=$1', [userId]);
+        if (user.length === 0) {
+          return res.status(NOT_FOUND).send({
+            status: NOT_FOUND,
+            error: `The user with ${userId} id is not found!.`,
+          });
+        }
+
+        if (user[0].is_mentor === true) {
+          return res.status(FORBIDDEN).send({
+            status: FORBIDDEN,
+            error: `The user with ${userId} id is already a mentor!.`,
+          });
+        }
+        const rows = await this.model().update('is_mentor=$1', 'id=$2', [true, userId]);
+        if (rows) {
+          return res.status(REQUEST_SUCCEDED).send({
+            status: REQUEST_SUCCEDED,
+            message: 'User account changed to mentor',
+          });
+        }
+      } catch (e) {
+        return res.status(SERVER_ERROR).json({
+          status: SERVER_ERROR,
+          error: 'server error',
         });
       }
     };
 
-    getMentors = (req, res) => {
-      const mentors = User.getAll();
+    static getMentors = async (req, res) => {
+      const mentors = await this.model().select('*', 'is_mentor=$1', [true]);
+      const mentorsContainer = [];
+      for (let item = 0; item < mentors.length; item += 1) {
+        const mentor = replaceIdWithMentorId(mentors[item]);
+        mentorsContainer.push(mentor);
+      }
       return res.status(REQUEST_SUCCEDED).send({
         status: REQUEST_SUCCEDED,
-        data: mentors,
+        data: mentorsContainer,
       });
     };
 
-    getMentorById = (req, res) => {
-      const { mentorId } = req.params;
-      if (!User.isUserExist(mentorId)) {
-        return res.status(NOT_FOUND).send({
-          status: NOT_FOUND,
-          error: `The user with ${mentorId} id is not found!.`,
-        });
-      }
-
-      const mentor = User.getMentor(mentorId);
-      return res.status(REQUEST_SUCCEDED).send({
-        status: REQUEST_SUCCEDED,
-        data: mentor,
+  static getMentorById = async (req, res) => {
+    const { mentorId } = req.params;
+    const user = await this.model().select('*', 'id=$1', [mentorId]);
+    if (user.length === 0) {
+      return res.status(NOT_FOUND).send({
+        status: NOT_FOUND,
+        error: `The user with ${mentorId} id is not found!.`,
       });
-    };
+    }
+    const mentor = await this.model().select('*', 'id=$1 AND is_mentor=$2', [mentorId, true]);
+    return res.status(REQUEST_SUCCEDED).send({
+      status: REQUEST_SUCCEDED,
+      data: replaceIdWithMentorId(mentor[0]),
+    });
+  };
 }
 
 export default UserController;

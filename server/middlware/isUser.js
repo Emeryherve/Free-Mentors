@@ -21,7 +21,7 @@ const isUser = async (req, res, next) => {
 
   try {
     const { id } = jwt.verify(token, process.env.JWTSECRET);
-    const user = await model.select('*', 'user_id=$1', [id]);
+    const user = await model.select('*', 'id=$1', [id]);
     if (!user.length) {
       return res.status(404).send({
         status: NOT_FOUND,

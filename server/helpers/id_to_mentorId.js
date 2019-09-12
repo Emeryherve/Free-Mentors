@@ -1,12 +1,12 @@
 
 const replaceIdWithMentorId = (obj) => {
   const {
-    id, firstName, lastName, email, address, bio, occupation, expertise,
+    id, first_name, last_name, email, address, bio, occupation, expertise,
   } = obj;
   const newObj = {
     mentorId: id,
-    firstName,
-    lastName,
+    firstName: first_name,
+    lastName: last_name,
     email,
     address,
     bio,

@@ -25,11 +25,12 @@ const tokenWithNoAdminAccess = generateAuthToken(1, false, false);
 const nonToken = ' ';
 const invalidToken = generateInvalidToken(1, true, false);
 const mentorToken = generateAuthToken(2, false, true);
+const mentorRejectToken = generateAuthToken(5, false, true);
 
-describe.skip('POST Create a mentorship session request with non integer mentorId, api/v1/sessions', () => {
+describe('POST Create a mentorship session request with non integer mentorId, api/v2/sessions', () => {
   it('should return mentorId is not integer', (done) => {
     chai.request(app)
-      .post('/api/v1/sessions')
+      .post('/api/v2/sessions')
       .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .send(sessions[4])
@@ -42,10 +43,10 @@ describe.skip('POST Create a mentorship session request with non integer mentorI
   });
 });
 
-describe.skip('POST Create a mentorship session request with whitespaced questions, api/v1/sessions', () => {
+describe('POST Create a mentorship session request with whitespaced questions, api/v2/sessions', () => {
   it('should return an error', (done) => {
     chai.request(app)
-      .post('/api/v1/sessions')
+      .post('/api/v2/sessions')
       .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .send(sessions[3])
@@ -58,10 +59,10 @@ describe.skip('POST Create a mentorship session request with whitespaced questio
   });
 });
 
-describe.skip('POST Create a mentorship session request api/v1/sessions', () => {
+describe('POST Create a mentorship session request api/v2/sessions', () => {
   it('should return mentorship session is created successfully', (done) => {
     chai.request(app)
-      .post('/api/v1/sessions')
+      .post('/api/v2/sessions')
       .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .send(sessions[7])
@@ -74,10 +75,10 @@ describe.skip('POST Create a mentorship session request api/v1/sessions', () => 
   });
 });
 
-describe.skip('POST Create a mentorship session request with no mentorId, api/v1/sessions', () => {
+describe('POST Create a mentorship session request with no mentorId, api/v2/sessions', () => {
   it('should return mentorId filed is required', (done) => {
     chai.request(app)
-      .post('/api/v1/sessions')
+      .post('/api/v2/sessions')
       .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .send(sessions[5])
@@ -89,10 +90,10 @@ describe.skip('POST Create a mentorship session request with no mentorId, api/v1
       });
   });
 });
-describe.skip('POST Create a mentorship session request with no questions, api/v1/sessions', () => {
+describe('POST Create a mentorship session request with no questions, api/v2/sessions', () => {
   it('should return questions field is required', (done) => {
     chai.request(app)
-      .post('/api/v1/sessions')
+      .post('/api/v2/sessions')
       .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .send(sessions[6])
@@ -105,10 +106,10 @@ describe.skip('POST Create a mentorship session request with no questions, api/v
   });
 });
 
-describe.skip('PATCH accept a mentorship session request with no token api/v1/sessions/:sessionId/accept', () => {
+describe('PATCH accept a mentorship session request with no token api/v2/sessions/:sessionId/accept', () => {
   it('should return no token found', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/4/accept')
+      .patch('/api/v2/sessions/4/accept')
       .set('x-auth-token', nonToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -121,10 +122,10 @@ describe.skip('PATCH accept a mentorship session request with no token api/v1/se
   });
 });
 
-describe.skip('PATCH accept a mentorship session request with not mentor token api/v1/sessions/:sessionId/accept', () => {
+describe('PATCH accept a mentorship session request with not mentor token api/v2/sessions/:sessionId/accept', () => {
   it('should return you are not a mentor', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/4/accept')
+      .patch('/api/v2/sessions/4/accept')
       .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -137,10 +138,10 @@ describe.skip('PATCH accept a mentorship session request with not mentor token a
   });
 });
 
-describe.skip('PATCH accept a mentorship session request with invalid token api/v1/sessions/:sessionId/accept', () => {
+describe('PATCH accept a mentorship session request with invalid token api/v2/sessions/:sessionId/accept', () => {
   it('should return invalid token', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/4/accept')
+      .patch('/api/v2/sessions/4/accept')
       .set('x-auth-token', invalidToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -153,10 +154,10 @@ describe.skip('PATCH accept a mentorship session request with invalid token api/
   });
 });
 
-describe.skip('PATCH accept a mentorship session request: session id not exist api/v1/sessions/:sessionId/accept', () => {
+describe('PATCH accept a mentorship session request: session id not exist api/v2/sessions/:sessionId/accept', () => {
   it('should return session id not found', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/900/accept')
+      .patch('/api/v2/sessions/900/accept')
       .set('x-auth-token', mentorToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -169,10 +170,10 @@ describe.skip('PATCH accept a mentorship session request: session id not exist a
   });
 });
 
-describe.skip('PATCH accept a mentorship session request: Rejected session api/v1/sessions/:sessionId/accept', () => {
+describe('PATCH accept a mentorship session request: Rejected session api/v2/sessions/:sessionId/accept', () => {
   it('should return session is already rejected', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/3/accept')
+      .patch('/api/v2/sessions/3/accept')
       .set('x-auth-token', mentorToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -185,10 +186,10 @@ describe.skip('PATCH accept a mentorship session request: Rejected session api/v
   });
 });
 
-describe.skip('PATCH accept a mentorship session request: Accepted session api/v1/sessions/:sessionId/accept', () => {
+describe('PATCH accept a mentorship session request: Accepted session api/v2/sessions/:sessionId/accept', () => {
   it('should return session is already accepted', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/2/accept')
+      .patch('/api/v2/sessions/2/accept')
       .set('x-auth-token', mentorToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -201,10 +202,10 @@ describe.skip('PATCH accept a mentorship session request: Accepted session api/v
   });
 });
 
-describe.skip('PATCH accept a mentorship session request api/v1/sessions/:sessionId/accept', () => {
+describe('PATCH accept a mentorship session request api/v2/sessions/:sessionId/accept', () => {
   it('should return accepted status', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/1/accept')
+      .patch('/api/v2/sessions/1/accept')
       .set('x-auth-token', mentorToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -217,10 +218,42 @@ describe.skip('PATCH accept a mentorship session request api/v1/sessions/:sessio
   });
 });
 
-describe.skip('PATCH reject a mentorship session request with no token api/v1/sessions/:sessionId/reject', () => {
+describe('PATCH api/v2/sessions/:sessionId/accept not owner of session', () => {
+  it('should return you are not the owner of session request', (done) => {
+    chai.request(app)
+      .patch('/api/v2/sessions/4/accept')
+      .set('x-auth-token', mentorToken)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(UNAUTHORIZED);
+        expect(res.body.status).to.equal(UNAUTHORIZED);
+        expect(res.body.error).to.equal('You are not the owner of this session request!');
+        done();
+      });
+  });
+});
+
+describe('PATCH api/v2/sessions/:sessionId/reject not owner of session', () => {
+  it('should return you are not the owner of session request', (done) => {
+    chai.request(app)
+      .patch('/api/v2/sessions/4/reject')
+      .set('x-auth-token', mentorToken)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(UNAUTHORIZED);
+        expect(res.body.status).to.equal(UNAUTHORIZED);
+        expect(res.body.error).to.equal('You are not the owner of this session request!');
+        done();
+      });
+  });
+});
+
+describe('PATCH reject a mentorship session request with no token api/v2/sessions/:sessionId/reject', () => {
   it('should return no token found', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/4/reject')
+      .patch('/api/v2/sessions/4/reject')
       .set('x-auth-token', nonToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -233,10 +266,10 @@ describe.skip('PATCH reject a mentorship session request with no token api/v1/se
   });
 });
 
-describe.skip('PATCH reject a mentorship session request with not mentor token api/v1/sessions/:sessionId/reject', () => {
+describe('PATCH reject a mentorship session request with not mentor token api/v2/sessions/:sessionId/reject', () => {
   it('should return you are not a mentor', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/4/reject')
+      .patch('/api/v2/sessions/4/reject')
       .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -249,10 +282,10 @@ describe.skip('PATCH reject a mentorship session request with not mentor token a
   });
 });
 
-describe.skip('PATCH reject a mentorship session request with invalid token api/v1/sessions/:sessionId/reject', () => {
+describe('PATCH reject a mentorship session request with invalid token api/v2/sessions/:sessionId/reject', () => {
   it('should return invalid token', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/4/reject')
+      .patch('/api/v2/sessions/4/reject')
       .set('x-auth-token', invalidToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -265,10 +298,10 @@ describe.skip('PATCH reject a mentorship session request with invalid token api/
   });
 });
 
-describe.skip('PATCH reject a mentorship session request: session id not exist api/v1/sessions/:sessionId/reject', () => {
+describe('PATCH reject a mentorship session request: session id not exist api/v2/sessions/:sessionId/reject', () => {
   it('should return session id not found', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/900/reject')
+      .patch('/api/v2/sessions/900/reject')
       .set('x-auth-token', mentorToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -281,10 +314,10 @@ describe.skip('PATCH reject a mentorship session request: session id not exist a
   });
 });
 
-describe.skip('PATCH reject a mentorship session request: Rejected session api/v1/sessions/:sessionId/reject', () => {
+describe('PATCH reject a mentorship session request: Rejected session api/v2/sessions/:sessionId/reject', () => {
   it('should not reject the session', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/2/reject')
+      .patch('/api/v2/sessions/2/reject')
       .set('x-auth-token', mentorToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -297,10 +330,10 @@ describe.skip('PATCH reject a mentorship session request: Rejected session api/v
   });
 });
 
-describe.skip('PATCH reject a mentorship session request: rejected session api/v1/sessions/:sessionId/reject', () => {
+describe('PATCH reject a mentorship session request: rejected session api/v2/sessions/:sessionId/reject', () => {
   it('should return session is already rejected', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/3/reject')
+      .patch('/api/v2/sessions/3/reject')
       .set('x-auth-token', mentorToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -313,11 +346,11 @@ describe.skip('PATCH reject a mentorship session request: rejected session api/v
   });
 });
 
-describe.skip('PATCH reject a mentorship session request api/v1/sessions/:sessionId/reject', () => {
+describe('PATCH reject a mentorship session request api/v2/sessions/:sessionId/reject', () => {
   it('should return rejected status', (done) => {
     chai.request(app)
-      .patch('/api/v1/sessions/4/reject')
-      .set('x-auth-token', mentorToken)
+      .patch('/api/v2/sessions/4/reject')
+      .set('x-auth-token', mentorRejectToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.body).to.be.an('object');

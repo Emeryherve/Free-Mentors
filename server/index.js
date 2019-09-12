@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(bodyParse.json());
 app.use('/api/v2', userRoute);
-app.use('/api/v1/sessions', sessionRoute);
+app.use('/api/v2/sessions', sessionRoute);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/', (req, res) => res.status(NOT_FOUND).send({
