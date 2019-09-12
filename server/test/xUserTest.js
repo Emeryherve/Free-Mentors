@@ -366,7 +366,7 @@ describe('PATCH Change a user to a mentor With Invalid JWT token (api/v2/user)',
   });
 });
 
-describe('PATCH /api/v2/user Change a user to a mentor With token of no Admin access (api/v2/user)', () => {
+describe('PATCH /api/v2/user Change a user to a mentor With token of no Admin access (api/v1/user)', () => {
   it('should return user has no admin access to change user ', (done) => {
     chai.request(app)
       .patch('/api/v2/user/3')

@@ -22,7 +22,6 @@ class UserController {
           firstName, lastName,
           email, password, address,
           bio, occupation, expertise,
-          isMentor, isAdmin,
         } = req.body;
 
         const result = Validator.validateSignUpRequest(req.body);
@@ -56,7 +55,7 @@ class UserController {
 
           const cols = 'first_name, last_name, email,password, address, bio,occupation,expertise,is_admin,is_mentor';
           const sels = `'${firstName}', '${lastName}', '${email}', '${password}',
-          '${address}', '${bio}','${occupation}','${expertise}','${isAdmin}','${isMentor}'`;
+          '${address}', '${bio}','${occupation}','${expertise}','false','false'`;
           const rows = await this.model().insert(cols, sels);
           let token = generateAuthToken(rows[0].id, rows[0].is_admin, rows[0].is_mentor);
 
@@ -176,6 +175,44 @@ class UserController {
       data: replaceIdWithMentorId(mentor[0]),
     });
   };
+
+  static changeUserToAdmin = async (req, res) => {
+    try {
+      const { userId } = req.params;
+      if (isNaN(userId.trim())) {
+        return res.status(BAD_REQUEST).send({
+          status: BAD_REQUEST,
+          error: 'User id should be an integer',
+        });
+      }
+      const user = await this.model().select('*', 'id=$1', [userId]);
+      if (user.length === 0) {
+        return res.status(NOT_FOUND).send({
+          status: NOT_FOUND,
+          error: `The user with ${userId} id is not found!.`,
+        });
+      }
+
+      if (user[0].is_admin === true) {
+        return res.status(FORBIDDEN).send({
+          status: FORBIDDEN,
+          error: `The user with ${userId} id is already a admin!.`,
+        });
+      }
+      const rows = await this.model().update('is_admin=$1', 'id=$2', [true, userId]);
+      if (rows) {
+        return res.status(REQUEST_SUCCEDED).send({
+          status: REQUEST_SUCCEDED,
+          message: 'User account changed to admin',
+        });
+      }
+    } catch (e) {
+      return res.status(SERVER_ERROR).json({
+        status: SERVER_ERROR,
+        error: 'server error',
+      });
+    }
+  }
 }
 
 export default UserController;
