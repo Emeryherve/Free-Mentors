@@ -251,10 +251,10 @@ describe('POST signin with invalid email, api/v2/auth/signin', () => {
 });
 
 
-describe.skip('PATCH Change a user to a mentor(api/v1/user) with an id not an integer', () => {
+describe('PATCH Change a user to a mentor(api/v2/user) with an id not an integer', () => {
   it('should return an error', (done) => {
     chai.request(app)
-      .patch('/api/v1/user/k')
+      .patch('/api/v2/user/k')
       .set('x-auth-token', tokenWithAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -268,10 +268,10 @@ describe.skip('PATCH Change a user to a mentor(api/v1/user) with an id not an in
 });
 
 
-describe.skip('PATCH Change a user to a mentor(api/v1/user) with an id not found', () => {
+describe('PATCH Change a user to a mentor(api/v2/user) with an id not found', () => {
   it('should return an error', (done) => {
     chai.request(app)
-      .patch('/api/v1/user/0')
+      .patch('/api/v2/user/0')
       .set('x-auth-token', tokenWithAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -285,10 +285,10 @@ describe.skip('PATCH Change a user to a mentor(api/v1/user) with an id not found
 });
 
 
-describe.skip('PATCH Change a user to a mentor(api/v1/user) user is already mentor', () => {
+describe('PATCH Change a user to a mentor(api/v2/user) user is already mentor', () => {
   it('should return an error', (done) => {
     chai.request(app)
-      .patch('/api/v1/user/2')
+      .patch('/api/v2/user/2')
       .set('x-auth-token', tokenWithAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -301,10 +301,10 @@ describe.skip('PATCH Change a user to a mentor(api/v1/user) user is already ment
   });
 });
 
-describe.skip('PATCH Change a user to a mentor(api/v1/user)', () => {
+describe('PATCH Change a user to a mentor(api/v2/user)', () => {
   it('should return user is changed to mentor successfully', (done) => {
     chai.request(app)
-      .patch('/api/v1/user/3')
+      .patch('/api/v2/user/3')
       .set('x-auth-token', tokenWithAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -317,10 +317,10 @@ describe.skip('PATCH Change a user to a mentor(api/v1/user)', () => {
   });
 });
 
-describe.skip('PATCH Change a user to a mentor with token of invalid id(api/v1/user)', () => {
+describe('PATCH Change a user to a mentor with token of invalid id(api/v2/user)', () => {
   it('should return token has no matching user', (done) => {
     chai.request(app)
-      .patch('/api/v1/user/3')
+      .patch('/api/v2/user/3')
       .set('x-auth-token', tokenWithInvalidUser)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -334,10 +334,10 @@ describe.skip('PATCH Change a user to a mentor with token of invalid id(api/v1/u
 });
 
 
-describe.skip('PATCH Change a user to a mentor With No token provided (api/v1/user)', () => {
+describe('PATCH Change a user to a mentor With No token provided (api/v2/user)', () => {
   it('should return no token provided ', (done) => {
     chai.request(app)
-      .patch('/api/v1/user/3')
+      .patch('/api/v2/user/3')
       .set('x-auth-token', nonToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -350,10 +350,10 @@ describe.skip('PATCH Change a user to a mentor With No token provided (api/v1/us
   });
 });
 
-describe.skip('PATCH Change a user to a mentor With Invalid JWT token (api/v1/user)', () => {
+describe('PATCH Change a user to a mentor With Invalid JWT token (api/v2/user)', () => {
   it('should return invalid JWT token ', (done) => {
     chai.request(app)
-      .patch('/api/v1/user/3')
+      .patch('/api/v2/user/3')
       .set('x-auth-token', invalidToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -366,10 +366,10 @@ describe.skip('PATCH Change a user to a mentor With Invalid JWT token (api/v1/us
   });
 });
 
-describe.skip('PATCH Change a user to a mentor With token of no Admin access (api/v1/user)', () => {
+describe('PATCH /api/v2/user Change a user to a mentor With token of no Admin access (api/v2/user)', () => {
   it('should return user has no admin access to change user ', (done) => {
     chai.request(app)
-      .patch('/api/v1/user/3')
+      .patch('/api/v2/user/3')
       .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -382,10 +382,10 @@ describe.skip('PATCH Change a user to a mentor With token of no Admin access (ap
   });
 });
 
-describe.skip('GET Get all mentors (api/v1/mentors)', () => {
+describe('GET Get all mentors (api/v2/mentors)', () => {
   it('should return all mentors available ', (done) => {
     chai.request(app)
-      .get('/api/v1/mentors')
+      .get('/api/v2/mentors')
       .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -397,10 +397,10 @@ describe.skip('GET Get all mentors (api/v1/mentors)', () => {
   });
 });
 
-describe.skip('GET get all mentors With No token provided (api/v1/mentors)', () => {
+describe('GET get all mentors With No token provided (api/v2/mentors)', () => {
   it('should return no token provided ', (done) => {
     chai.request(app)
-      .get('/api/v1/mentors')
+      .get('/api/v2/mentors')
       .set('x-auth-token', nonToken)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -413,10 +413,10 @@ describe.skip('GET get all mentors With No token provided (api/v1/mentors)', () 
   });
 });
 
-describe.skip('GET a specific mentor(api/v1/mentors/:mentorId) with an id not found', () => {
+describe('GET a specific mentor(api/v2/mentors/:mentorId) with an id not found', () => {
   it('should return mentor id not exist', (done) => {
     chai.request(app)
-      .get('/api/v1/mentors/0')
+      .get('/api/v2/mentors/0')
       .set('x-auth-token', tokenWithAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -429,10 +429,10 @@ describe.skip('GET a specific mentor(api/v1/mentors/:mentorId) with an id not fo
   });
 });
 
-describe.skip('GET a specific mentor (api/v1/mentors)', () => {
+describe('GET a specific mentor (api/v2/mentors)', () => {
   it('should return a mentor ', (done) => {
     chai.request(app)
-      .get('/api/v1/mentors/2')
+      .get('/api/v2/mentors/2')
       .set('x-auth-token', tokenWithNoAdminAccess)
       .set('Accept', 'application/json')
       .end((err, res) => {

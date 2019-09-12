@@ -1,21 +1,27 @@
 
 class SessionBridge {
-    haltIfNoSessionFound = (sessionId, object) => {
-      if (!object.isSessionExist(sessionId)) {
+  haltIfNotOwnerOfSession = (mentorId, session) => {
+    if (session[0].mentor_id !== parseInt(mentorId, 10)) {
+      return 'You are not the owner of this session request!';
+    }
+  };
+
+    haltIfNoSessionFound = (session, sessionId) => {
+      if (session.length === 0) {
         return `The session with ${sessionId} id is not found!.`;
       }
     };
 
-    haltIfSessionRejected = (sessionId, object, flag) => {
-      if (object.isAlreadyRejected(sessionId)) {
+    haltIfSessionRejected = (session, flag) => {
+      if (session[0].status === 'rejected') {
         return (flag === 'accept') ? 'OOps! You can not accept the rejected session request!'
-          : `This Session Request with ${sessionId} id is already rejected!`;
+          : `This Session Request with ${session[0].id} id is already rejected!`;
       }
     };
 
-    haltIfSessionAccepted = (sessionId, object, flag) => {
-      if (object.isAlreadyAccepted(sessionId)) {
-        return (flag === 'accept') ? `This Session Request with ${sessionId} id is already accepted!`
+    haltIfSessionAccepted = (session, flag) => {
+      if (session[0].status === 'accepted') {
+        return (flag === 'accept') ? `This Session Request with ${session[0].id} id is already accepted!`
           : 'OOps! You can not reject the accepted Session Request!';
       }
     };

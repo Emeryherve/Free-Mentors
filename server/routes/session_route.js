@@ -4,11 +4,15 @@ import isUser from '../middlware/isUser';
 import isMentor from '../middlware/isMentor';
 
 const router = express.Router();
-const sessionController = new SessionController();
-router.post('/', isUser, sessionController.createSessionRequest);
+const {
+  createSessionRequest,
+  acceptRequest, rejectRequest,
+} = SessionController;
+
+router.post('/', isUser, createSessionRequest);
 router.patch('/:sessionId/accept', isUser,
-  isMentor, sessionController.acceptRequest);
+  isMentor, acceptRequest);
 router.patch('/:sessionId/reject', isUser, isMentor,
-  sessionController.rejectRequest);
+  rejectRequest);
 
 export default router;

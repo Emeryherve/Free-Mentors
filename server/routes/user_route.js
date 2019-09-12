@@ -4,7 +4,14 @@ import isUser from '../middlware/isUser';
 import isAdmin from '../middlware/isAdmin';
 
 const router = express.Router();
-const { signUp, signIn } = UserController;
+const {
+  signUp, signIn,
+  changeUserToMentor,
+  getMentors, getMentorById,
+} = UserController;
 router.post('/auth/signup', signUp);
 router.post('/auth/signin', signIn);
+router.patch('/user/:userId', isUser, isAdmin, changeUserToMentor);
+router.get('/mentors', isUser, getMentors);
+router.get('/mentors/:mentorId', isUser, getMentorById);
 export default router;
