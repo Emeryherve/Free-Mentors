@@ -65,11 +65,14 @@ The project is composed of two different parts:
    * Style Guide: [Airbnb](https://github.com/airbnb/javascript)
    * Testing Framework: [Mocha](https://mochajs.org/)
    * Documentation Tools: [Swagger](https://swagger.io/tools/swagger-ui/)
+   * Database: [Postgres](https://www.postgresql.org/)
+   * Hosting serice: [Heroku](https://www.heroku.com)
 
 * UI Templates
    * CSS 
    * HTML
    * JS
+   * Hosting service: gh-pages
 
 
 ## Contributing
