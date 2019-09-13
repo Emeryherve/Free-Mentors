@@ -4,7 +4,7 @@
      "description": "Free Mentors is a social initiative where accomplished professionals become role models to young people to provide free mentorship sessions.",
      "version": "v2",
      "title": "Free Mentors APIs docs",
-     "termsOfService": "http://swagger.io/terms/",
+     "termsOfService": "httpswagger.io/terms/",
      "contact": {
       "email": "emeryherve112@gmail.com"
      },
@@ -13,7 +13,7 @@
       "url": "https://github.com/Emeryherve/Free-Mentors/blob/develop/LICENCE.md"
      }
     },
-    "host": "https://free--mentor.herokuapp.com",
+    "host": "free--mentor.herokuapp.com",
     "basePath": "/api/v2",
     "tags": [
      {
