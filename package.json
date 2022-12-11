@@ -36,7 +36,7 @@
     "dotenv": "^8.1.0",
     "eslint-config-airbnb": "^18.0.1",
     "esm": "^3.2.25",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "faker": "^4.1.0",
     "gulp": "^4.0.2",
     "joi": "^14.3.1",
